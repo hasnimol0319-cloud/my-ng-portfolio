@@ -11,6 +11,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 export class NavbarComponent {
 
   alert(h: string) {
-    alert(h);
+    console.log(h);
+    
   }
 }
