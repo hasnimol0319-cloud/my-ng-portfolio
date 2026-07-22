@@ -1,14 +1,20 @@
-.container{
+.intro, .service{
     width: 100%;
     height: auto;
     display: flex;
+    justify-content: center;
+}
+.service{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .greeting{
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: self-start;
+    align-items: flex-start;
 }
 .image-left{
     flex: 1;
@@ -20,3 +26,46 @@
         height: 450px;
     }
 }
+
+.service-list{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+.card{
+    flex: 1;
+    border: 1px solid var(--primary);
+    border-radius: 1rem;
+    padding: 26px;
+}
+.card-number{
+    display: inline-block;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+ 
+  .card-icon {
+    color: var(--primary);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+ 
+  .card-title {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+ 
+  .service-description {
+    color: #9a9a9a;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+  }

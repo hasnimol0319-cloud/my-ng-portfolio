@@ -16,7 +16,7 @@
 }
 
 .footer-logo{
-    color:#38bdf8;
+    color:var(--primary);
     margin-bottom:20px;
 }
 
@@ -35,12 +35,12 @@
 
 .footer-section a i{
     margin-right:10px;
-    color:#38bdf8;
+    color:var(--primary);
     width:20px;
 }
 
 .footer-section a:hover{
-    color:#38bdf8;
+    color:var(--primary);
     transform:translateX(5px);
 }
 
@@ -70,7 +70,7 @@
 }
 
 .social-links a:hover{
-    background:#38bdf8;
+    background:var(--primary);
     color:#081120;
     transform:translateY(-6px);
 }

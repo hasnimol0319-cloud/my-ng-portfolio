@@ -5,6 +5,17 @@
     box-sizing:border-box;
 }
 
+:root {
+  --primary: #38bdf8;
+}
+.primary-color{
+  color: var(--primary);
+}
+.container-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 
 body {
   font-family: 'inter', sans-serif;
@@ -21,10 +32,10 @@ p {
 }
 
 .animation-fade-in-left{
-  animation: 5s cubic-bezier(.16, 1, .3, 1) both fadeInLeft;
+  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInLeft;
 }
 .animation-fade-in-right{
-  animation: 5s cubic-bezier(.16, 1, .3, 1) both fadeInRight;
+  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInRight;
 }
 @keyframes fadeInLeft {
   0%{

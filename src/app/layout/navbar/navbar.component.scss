@@ -27,7 +27,7 @@
 }
 
 .logo span{
-    color:#38bdf8;
+    color:var(--primary);
 }
 
 .nav-links{
@@ -58,7 +58,7 @@
     width:0%;
     height:2px;
 
-    background:#38bdf8;
+    background:var(--primary);
     transition:.3s;
 }
 
@@ -68,14 +68,14 @@
 }
 
 .active{
-    color:#38bdf8 !important;
+    color:var(--primary) !important;
 }
 
 .btn{
     padding:.75rem 1.4rem;
     border-radius:50px;
 
-    background:#38bdf8;
+    background:var(--primary);
     color:#fff !important;
 
     transition:.3s;
