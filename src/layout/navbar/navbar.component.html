@@ -1,0 +1,27 @@
+<header class="navbar">
+    <div class="container">
+
+        <a href="#" class="logo">
+            <span>&lt;/&gt;</span> HasDev
+        </a>
+
+        <input type="checkbox" id="menu-toggle">
+
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-links">
+            <button (click)="alert('o')" routerLink="" class="active">Home</button>
+            <button (click)="alert('ok')" routerLink="about" routerLinkActive="active">About</button>
+            <button href="#">Skills</button>
+            <button href="#">Projects</button>
+            <button href="#">Contact</button>
+
+            <button href="#" class="btn">Hire Me</button>
+        </nav>
+
+    </div>
+</header>
