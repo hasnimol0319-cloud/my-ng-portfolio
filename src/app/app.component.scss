@@ -5,9 +5,9 @@
 
 .hero{
     height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    width:min(1200px,90%);
+    margin: auto;
+    margin-top: 100px;
     font-size:2rem;
 }
 
