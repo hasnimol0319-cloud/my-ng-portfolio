@@ -5,10 +5,70 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0f172a;
-    color:#fff;
+/* Thin - កម្រាស់ ១០០ */
+@font-face {
+  font-family: 'cera-round-pro';
+  src: url('/fonts/FONTSPRINGDEMO-CeraRoundProThinRegular.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light - កម្រាស់ ៣០០ */
+@font-face {
+  font-family: 'cera-round-pro';
+  src: url('/fonts/FONTSPRINGDEMO-CeraRoundProLightRegular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular - កម្រាស់ ៤០០ (ធម្មតា) */
+@font-face {
+  font-family: 'cera-round-pro';
+  src: url('/fonts/FONTSPRINGDEMO-CeraRoundProRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - កម្រាស់ ៥០០ */
+@font-face {
+  font-family: 'cera-round-pro';
+  src: url('/fonts/FONTSPRINGDEMO-CeraRoundProMediumRegular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - កម្រាស់ ៧០០ (ដិត) */
+@font-face {
+  font-family: 'cera-round-pro';
+  src: url('/fonts/FONTSPRINGDEMO-CeraRoundProBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black - កម្រាស់ ៩០០ (ដិតខ្លាំង) */
+@font-face {
+  font-family: 'cera-round-pro';
+  src: url('/fonts/FONTSPRINGDEMO-CeraRoundProBlackRegular.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  font-family: 'cera-round-pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 400; /* វានឹងយក font Regular មកបង្ហាញ */
+}
+
+h1 {
+  font-weight: 700; /* វានឹងយក font Bold មកបង្ហាញដោយស្វ័យប្រវត្ត */
 }
 a{
     text-decoration:none;
