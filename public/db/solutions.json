@@ -1,0 +1,24 @@
+{
+    "solutions": [
+        {
+            "id": 1,
+            "title": "Frontend Developer",
+            "description": "Expert-level Angular, React, and Vue development for scalable enterprise applications."
+        },
+        {
+            "id": 2,
+            "title": "Architecture Design",
+            "description": "Component-driven design, robust state management, and clean code optimization."
+        },
+        {
+            "id": 3,
+            "title": "Speed & Optimization",
+            "description": " Web performance tuning, SEO-friendly rendering, and comprehensive unit testing."
+        },
+        {
+            "id": 4,
+            "title": "Project Lead",
+            "description": "Lead, mentor, and motivate the team to produce high-quality, clean code."
+        }
+    ]
+}
