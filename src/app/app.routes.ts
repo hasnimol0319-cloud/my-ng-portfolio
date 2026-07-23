@@ -15,7 +15,7 @@ export const routes: Routes = [
         loadComponent: () => import('../app/components/skill/skill.component').then(m => m.SkillComponent)
     },
     {
-        path: 'project',
+        path: 'projects',
         loadComponent: () => import('../app/components/project/project.component').then(m => m.ProjectComponent)
     },
     {

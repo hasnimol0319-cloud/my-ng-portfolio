@@ -14,14 +14,10 @@
         </label>
 
         <nav class="nav-links">
-            <a  routerLink="/home" routerLinkActive="active">Home</a>
-            <a  routerLink="/about" routerLinkActive="active">About</a>
-            <a  routerLink="/skill" routerLinkActive="active">Skills</a>
-            <a routerLink="/project" routerLinkActive="active">Projects</a>
-            <a href="#">Contact</a>
-
+            @for (m of menu; track m.id) {
+                <a [routerLink]="m.url" routerLinkActive="active">{{m.name}}</a>
+            }
             <a href="#" class="btn">Hire Me</a>
         </nav>
-
     </div>
 </header>
