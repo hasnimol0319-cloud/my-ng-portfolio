@@ -15,6 +15,10 @@ export const routes: Routes = [
         loadComponent: () => import('../app/components/skill/skill.component').then(m => m.SkillComponent)
     },
     {
+        path: 'project',
+        loadComponent: () => import('../app/components/project/project.component').then(m => m.ProjectComponent)
+    },
+    {
         path: 'not-found',
         loadComponent: () => import('../app/components/not-found/not-found.component').then(m => m.NotFoundComponent)
     },
