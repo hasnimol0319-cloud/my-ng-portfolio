@@ -28,13 +28,12 @@
     [class.active]="i === activeIndex"
     [class.enter]="i === activeIndex && replayAnimation">
 
-    <div class="panel-img" [style.background-image]="'url(' + tab.image + ')'"></div>
 
     <div class="panel-text">
-      <div class="eyebrow">{{ tab.eyebrow }}</div>
-      <h2>{{ tab.heading }}</h2>
+      <h3>{{ tab.heading }}</h3>
       <p>{{ tab.description }}</p>
     </div>
+    <div class="panel-img" [style.background-image]="'url(' + tab.image + ')'"></div>
 
   </div>
 

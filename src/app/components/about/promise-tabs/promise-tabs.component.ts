@@ -29,30 +29,30 @@ export class PromiseTabsComponent implements AfterViewInit, OnDestroy {
   tabs: TabData[] = [
     {
       id: 'promise',
-      label: 'Our promise',
-      eyebrow: 'Our promise',
-      heading: 'Reliable software built around real operations.',
+      label: 'Architecture',
+      eyebrow: 'Architecture',
+      heading: 'Architecture before code',
       description:
-        'We focus on clear delivery, maintainable systems, and solutions that support how teams actually work day to day.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80'
+        'I map data flow, state, and module boundaries before writing a single component so the system scales without a rewrite.',
+      image: 'images/Architecture.jpg'
     },
     {
       id: 'journey',
-      label: 'Our Journey',
-      eyebrow: 'Our journey',
-      heading: 'Built from real projects, not a pitch deck.',
+      label: 'Performance',
+      eyebrow: 'Performance',
+      heading: 'Performance is a feature',
       description:
-        'Every process we recommend has been tested on an actual deadline, with an actual team, under actual pressure — not designed in a vacuum.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80'
+        "Load time and responsiveness aren't cleanup tasks for later. I budget for them from the first commit.",
+      image: 'images/Performance.jpg'
     },
     {
       id: 'values',
-      label: 'Our Values',
-      eyebrow: 'Our values',
-      heading: 'Clarity first, complexity only when it earns its place.',
+      label: 'Clean Code',
+      eyebrow: 'Clean Code',
+      heading: 'Code someone else can read',
       description:
-        "We'd rather ship something simple that works than something impressive that breaks. Every decision gets weighed against that.",
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80'
+        "Clean, documented, and consistent because the next person to touch this code might be me, six months from now.",
+      image: 'images/clean_code.png'
     }
   ];
 
