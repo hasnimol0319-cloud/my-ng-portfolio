@@ -1,29 +1,30 @@
 <div class="container-wrap">
     <div class="intro">
-    <div class="image-left animation-fade-in-left">
-        <img src="images/image-cover.png" alt="" srcset="">
+        <div class="image-left animation-fade-in-left">
+            <img src="images/image-cover.png" alt="" srcset="">
+        </div>
+        <div class="greeting animation-fade-in-right">
+            <p class="primary-color">Driving Next-Gen Business Efficiency Through Smart Automation </p>
+            <h3>Transforming Your Business Vision into Powerful Software.</h3>
+            <p class="description">I bridge the gap between complex enterprise challenges and next-gen engineering.     
+                My approach goes beyond just writing code; I architect experiences. Every digital solution I build is engineered specifically around your unique operational workflows, ensuring that the software adapts seamlessly to how your teams actually work, eliminates friction, and drives sustainable business growth.</p>
+        </div>
     </div>
-    <div class="greeting animation-fade-in-right">
-        <h3>Building Scalable Web Experiences</h3>
-        <p class="primary-color">Frontend Developer & System Architect</p>
-        <p>Web Fronted Developer with 5+ years of enterprise experience in Angular, TypeScript, and modern frontend architecture. Specialized in high-performance applications, building scalable, optimizing complex systems, and delivering exceptional user experiences.</p>
-    </div>
-</div>
-<div class="service">
-    <div class="title">
-    </div>
-    <h6>Comprehensive frontend solutions tailored to enterprise needs</h6>
-    <div class="service-list">
-        @for (s of solutions; track s.id; let i = $index) {
-            <div class="card">
-                <div class="card-top">
-                    <div class="card-number">{{i < 9 ? "0" + (i+1): i+1}}</div>
-                    <div class="card-icon">&lt;/&gt;</div>
+    <div class="service">
+        <div class="title">
+        </div>
+        <h6>Comprehensive frontend solutions tailored to enterprise needs</h6>
+        <div class="service-list">
+            @for (s of solutions; track s.id; let i = $index) {
+                <div class="card">
+                    <div class="card-top">
+                        <div class="card-number">{{i < 9 ? "0" + (i+1): i+1}}</div>
+                        <div class="card-icon">&lt;/&gt;</div>
+                    </div>
+                    <div class="card-title">{{s.title}}</div>
+                    <p class="description">{{s.description}}</p>
                 </div>
-                <div class="card-title">{{s.title}}</div>
-                <p class="service-description">{{s.description}}</p>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
 </div>

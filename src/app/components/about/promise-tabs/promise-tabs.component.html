@@ -1,0 +1,41 @@
+<div class="wrap">
+
+  <div class="tabs" role="tablist" aria-label="Company info tabs">
+    <div
+      class="tab-indicator"
+      [style.width.px]="indicatorWidth"
+      [style.transform]="'translateX(' + indicatorX + 'px)'">
+    </div>
+
+    <button
+      *ngFor="let tab of tabs; let i = index"
+      #tabBtn
+      class="tab-btn"
+      [class.active]="i === activeIndex"
+      role="tab"
+      [attr.aria-selected]="i === activeIndex"
+      [attr.aria-controls]="'panel-' + tab.id"
+      (click)="selectTab(i)">
+      {{ tab.label }}
+    </button>
+  </div>
+
+  <div
+    class="panel"
+    *ngFor="let tab of tabs; let i = index"
+    [id]="'panel-' + tab.id"
+    role="tabpanel"
+    [class.active]="i === activeIndex"
+    [class.enter]="i === activeIndex && replayAnimation">
+
+    <div class="panel-img" [style.background-image]="'url(' + tab.image + ')'"></div>
+
+    <div class="panel-text">
+      <div class="eyebrow">{{ tab.eyebrow }}</div>
+      <h2>{{ tab.heading }}</h2>
+      <p>{{ tab.description }}</p>
+    </div>
+
+  </div>
+
+</div>
