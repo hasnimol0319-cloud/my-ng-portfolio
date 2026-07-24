@@ -15,7 +15,7 @@
         </div>
         <h6>Comprehensive frontend solutions tailored to enterprise needs</h6>
         <div class="service-list">
-            @for (s of solutions; track s.id; let i = $index) {
+            @for (s of solutionList; track s.id; let i = $index) {
                 <div class="card">
                     <div class="card-top">
                         <div class="card-number">{{i < 9 ? "0" + (i+1): i+1}}</div>

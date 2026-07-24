@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
-import { map } from 'rxjs';
+import menus from '@public/db/menu.json';
 
 interface Menu{
   id: number,
@@ -23,16 +22,12 @@ export class NavbarComponent implements OnInit{
     console.log(h);
     
   }
-constructor(
-  private http: HttpClient
-) {}
+constructor() {}
   ngOnInit(){
     this.getMenu();
   }
 
   getMenu() {
-    this.http.get('/db/menu.json').pipe(map((d:any) => d.menu)).subscribe((res:Menu[]) => {
-      this.menu = res;
-    })
+    this.menu = menus.menu;
   }
 }

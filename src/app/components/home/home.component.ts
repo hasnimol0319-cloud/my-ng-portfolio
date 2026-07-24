@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { map } from 'rxjs';
+import solutions from '@public/db/solutions.json';
 
 interface Solution {
   id: number,
@@ -16,18 +15,14 @@ interface Solution {
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  solutions: Solution[] = [];
+  solutionList: Solution[] = [];
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor() {}
 
 ngOnInit() {
   this.getSolution();
 }
   getSolution() {
-    this.http.get('/db/solutions.json').pipe(map((d:any) => d.solutions)).subscribe((res: Solution[]) => {
-      this.solutions = res;
-    })
+    this.solutionList = solutions.solutions;
   }
 }
