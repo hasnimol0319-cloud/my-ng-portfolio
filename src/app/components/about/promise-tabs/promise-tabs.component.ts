@@ -67,12 +67,20 @@ export class PromiseTabsComponent implements AfterViewInit, OnDestroy {
   private resizeHandler = () => this.moveIndicator(this.activeIndex);
 
   ngAfterViewInit(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     // Wait a tick so font/layout is settled before measuring the first tab.
     setTimeout(() => this.moveIndicator(this.activeIndex));
     window.addEventListener('resize', this.resizeHandler);
   }
 
   ngOnDestroy(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     window.removeEventListener('resize', this.resizeHandler);
   }
 
