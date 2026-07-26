@@ -1,0 +1,63 @@
+<section class="skills-section">
+
+  <!-- Header -->
+  <div class="skills-head">
+    <h2>My Skills &amp; Expertise</h2>
+    <p>
+      I've worked with a wide range of technologies in the web development world.
+      Here's an overview of my technical skills and proficiency levels.
+    </p>
+  </div>
+
+  <!-- Filter pills -->
+  <div class="filters">
+    <button
+      *ngFor="let f of filters"
+      (click)="setFilter(f.key)"
+      class="filter-btn"
+      [class.active]="activeFilter === f.key">
+      {{ f.label }}
+    </button>
+  </div>
+
+  <!-- Grid -->
+  <div class="skills-grid">
+    <div
+      *ngFor="let skill of skills; let i = index; trackBy: trackByName"
+      #cardRef
+      [attr.data-name]="skill.name"
+      [class.hidden-card]="!isShown(skill)"
+      class="skill-card"
+      [style.animation-delay.ms]="i * 60">
+
+      <!-- Radial progress ring -->
+      <div class="ring-wrap">
+        <svg viewBox="0 0 118 118" class="ring-svg">
+          <circle class="ring-track" cx="59" cy="59" r="50"></circle>
+          <circle
+            class="ring-bar"
+            cx="59" cy="59" r="50"
+            [attr.stroke]="skill.color"
+            [attr.stroke-dasharray]="CIRC"
+            [attr.stroke-dashoffset]="ringOffset(skill)">
+          </circle>
+        </svg>
+
+        <div class="ring-center">
+          <div
+            class="ring-icon"
+            [style.background]="skill.iconBg">
+            <img style="width: 28px;" [src]="skill.icon" [alt]="skill.name + ' logo'" class="ring-icon-img">
+          </div>
+          <div class="ring-pct">{{ skill.pct }}%</div>
+        </div>
+      </div>
+
+      <div class="skill-name">
+        <h3 [style.color]="skill.color">{{ skill.name }}</h3>
+      <span class="level-tag">{{ skill.level }}</span>
+      </div>
+    </div>
+  </div>
+
+</section>
