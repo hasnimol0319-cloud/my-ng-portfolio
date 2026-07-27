@@ -18,9 +18,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 0;
     img{
-        width: 450px;
-        height: 450px;
+        width: 100%;
+        max-width: 450px;
+        height: auto;
     }
 }
 .section2{
@@ -116,12 +118,6 @@
   color: #f1f5f9;
 }
 
-.timeline-text {
-  font-size: 14px;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin: 0;
-}
 
 /* Hover Effect ពេលយកម៉ៅដាក់លើ */
 .timeline-item:hover .timeline-icon {

@@ -5,7 +5,7 @@
         </div>
         <div class="greeting animation-fade-in-right">
             <p class="primary-color">Driving Next-Gen Business Efficiency Through Smart Automation </p>
-            <h3>Transforming Your Business Vision into Powerful Software.</h3>
+            <h2>Transforming Your Business Vision into Powerful Software.</h2>
             <p class="description">I bridge the gap between complex enterprise challenges and next-gen engineering.     
                 My approach goes beyond just writing code; I architect experiences. Every digital solution I build is engineered specifically around your unique operational workflows, ensuring that the software adapts seamlessly to how your teams actually work, eliminates friction, and drives sustainable business growth.</p>
         </div>
@@ -13,7 +13,7 @@
     <div class="service">
         <div class="title">
         </div>
-        <h6>Comprehensive frontend solutions tailored to enterprise needs</h6>
+        <h3>Comprehensive frontend solutions tailored to enterprise needs</h3>
         <div class="service-list">
             @for (s of solutionList; track s.id; let i = $index) {
                 <div class="card">
@@ -21,7 +21,7 @@
                         <div class="card-number">{{i < 9 ? "0" + (i+1): i+1}}</div>
                         <div class="card-icon">&lt;/&gt;</div>
                     </div>
-                    <div class="card-title">{{s.title}}</div>
+                    <h4 class="card-title">{{s.title}}</h4>
                     <p class="description">{{s.description}}</p>
                 </div>
             }

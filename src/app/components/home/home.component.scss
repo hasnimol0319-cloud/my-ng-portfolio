@@ -3,6 +3,7 @@
     height: auto;
     display: flex;
     justify-content: center;
+    gap: 2rem;
 }
 .service{
     flex-direction: column;
@@ -22,9 +23,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 0;
     img{
-        width: 450px;
-        height: 450px;
+        width: 100%;
+        max-width: 450px;
+        height: auto;
     }
 }
 
@@ -72,7 +75,26 @@
  
   .card-title {
     color: #ffffff;
-    font-size: 22px;
-    font-weight: 700;
   }
- 
+
+/* Responsive */
+@media (max-width: 900px){
+  .service-list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px){
+  .intro{
+    flex-direction: column;
+  }
+  .greeting{
+    align-items: center;
+    text-align: center;
+  }
+}
+@media (max-width: 560px){
+  .service-list{
+    grid-template-columns: 1fr;
+  }
+}
+

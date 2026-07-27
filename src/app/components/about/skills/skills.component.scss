@@ -3,7 +3,7 @@
   --panel: #111a2e;
   --panel-hover: #14203a;
   --border: #1d2b45;
-  --blue: #3bb4f2;
+  --blue: var(--primary);
   --text: #eef2f8;
   --text-dim: #8b98af;
   --text-faint: #5c6a84;
@@ -39,16 +39,9 @@
 .eyebrow-line{ width: 22px; height: 1px; background: var(--blue); }
 
 .skills-head h2{
-  font-family: 'Sora', sans-serif;
-  font-size: 2.3rem;
-  font-weight: 800;
   margin: 0 0 16px;
 }
-.skills-head p{
-  color: var(--text-dim);
-  font-size: 1rem;
-  margin: 0;
-}
+
 
 /* Filter pills */
 .filters{

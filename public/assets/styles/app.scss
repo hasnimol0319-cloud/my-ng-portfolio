@@ -11,6 +11,21 @@
 
 :root {
   --primary: #38bdf8;
+
+  /* Shared font stacks (loaded via Google Fonts in index.html) */
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shared type scale so every "hero title", "section title", etc. is
+     visually identical wherever it appears, regardless of which heading
+     level is semantically correct in that spot. */
+  --fs-h1: clamp(2rem, 4vw + 1rem, 3rem);      /* page hero title */
+  --fs-h2: clamp(1.5rem, 2vw + 1rem, 2rem);     /* section title */
+  --fs-h3: clamp(1.15rem, 1vw + 1rem, 1.5rem);  /* card / item title */
+  --fs-h4: 1.1rem;
+  --fs-h5: 1rem;
+  --fs-h6: 0.85rem;                             /* eyebrow / label */
 }
 .primary-color{
   color: var(--primary);
@@ -23,13 +38,13 @@
 }
   .description {
     color: #9a9a9a;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.5;
     margin: 0;
   }
 
 body {
-  font-family: 'inter', sans-serif;
+  font-family: var(--font-body);
   background: #0f172a;
   color: #fff;
 }
@@ -40,6 +55,27 @@ a{
 p {
   font-size: 14px;
   line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-h6);
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .animation-fade-in-left{
