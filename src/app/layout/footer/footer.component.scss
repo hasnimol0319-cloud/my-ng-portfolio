@@ -43,11 +43,15 @@
     color:var(--primary);
     transform:translateX(5px);
 }
+.image{
+    display: flex;
+    justify-content: center;
+}
 .img {
-  width: 200px;       /* កំណត់ទទឹងថេរល្មមស្អាត */
-  height: 250px;      /* កំណត់កម្ពស់ឱ្យស្មើទទឹង */
-  object-fit: cover;  /* ការពារកុំឱ្យរូបភាពរងាកន្ត្រាក់ ឬខូចរាង */
-  border-radius: 8px; /* ថែមគែមមូលតិចៗឱ្យមើលទៅទន់ភ្លន់ */
+  width: 200px;      
+  height: 250px;      
+  object-fit: cover;  
+  border-radius: 8px; 
 }
 
 .social-links{
