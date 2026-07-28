@@ -17,6 +17,7 @@ interface Menu{
 })
 export class NavbarComponent implements OnInit{
   menu:Menu[] = [];
+  isMenuOpen = false;
 
   alert(h: string) {
     console.log(h);
@@ -25,6 +26,14 @@ export class NavbarComponent implements OnInit{
 constructor() {}
   ngOnInit(){
     this.getMenu();
+  }
+
+  toggleMenu(){
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(){
+    this.isMenuOpen = false;
   }
 
   getMenu() {

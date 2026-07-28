@@ -5,17 +5,15 @@
             <span>&lt;/&gt;</span> HasDev
         </a>
 
-        <input type="checkbox" id="menu-toggle">
+        <button type="button" class="hamburger" [class.is-open]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <nav class="nav-links">
+        <nav class="nav-links" [class.is-open]="isMenuOpen">
             @for (m of menu; track m.id) {
-                <a [routerLink]="m.url" routerLinkActive="active">{{m.name}}</a>
+                <a [routerLink]="m.url" routerLinkActive="active" (click)="closeMenu()">{{m.name}}</a>
             }
         </nav>
 
