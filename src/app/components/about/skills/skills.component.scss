@@ -168,12 +168,12 @@
 /* Responsive */
 @media (max-width: 1000px){
   .skills-grid{ grid-template-columns: repeat(2, 1fr); }
-  .skills-section{ padding: 70px 24px; }
 }
 @media (max-width: 768px){
   .skills-grid{ grid-template-columns: 1fr 1fr; gap: 14px; }
   .skill-card{ padding: 20px 14px; }
   .ring-wrap{ width: 92px; height: 92px; }
+  .filter-btn{ padding: 8px 16px;}
 }
 @media (max-width:560px) {
   .skills-grid{ grid-template-columns: 1fr; gap: 14px; }
