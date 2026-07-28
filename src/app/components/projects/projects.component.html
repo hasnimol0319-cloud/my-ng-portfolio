@@ -5,8 +5,8 @@
     </div>
 
     <div class="projects-grid">
-        @for (p of projects; track p.id) {
-            <div class="project-card animation-fade-in-bottom">
+        @for (p of projects; track p.id; let odd = $odd) {
+            <div class="project-card" [class]="!odd ? 'animation-fade-in-left':'animation-fade-in-right'">
 
                 <div class="preview">
                     <img [src]="p.image" [alt]="p.title" loading="lazy">
