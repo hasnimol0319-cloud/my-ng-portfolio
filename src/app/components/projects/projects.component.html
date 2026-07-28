@@ -1,0 +1,37 @@
+<section class="projects">
+    <div class="section-head animation-fade-in-top">
+        <h2>Company Projects</h2>
+        <p class="description">Enterprise systems built with modern architecture and best practices. The company built these secure web systems for other client companies to use inside their own businesses. Because these tools are made for internal use only and handle private business data, they are kept on local secure networks and cannot be viewed by the public. Each project was carefully designed to help our clients manage their daily operations and teamwork safely and efficiently.</p>
+    </div>
+
+    <div class="projects-grid">
+        @for (p of projects; track p.id) {
+            <div class="project-card animation-fade-in-bottom">
+
+                <div class="preview">
+                    <img [src]="p.image" [alt]="p.title" loading="lazy">
+                </div>
+
+                <div class="info">
+                    <h3>{{ p.title }}</h3>
+                    <p class="description">{{ p.description }}</p>
+
+                    <div class="tags">
+                        @for (tag of p.tags; track tag) {
+                            <span class="tag">{{ tag }}</span>
+                        }
+                    </div>
+
+                    <!-- <a [href]="p.link" class="view-link" target="_blank">
+                        View Project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17 L17 7"></path>
+                            <path d="M8 7 h9 v9"></path>
+                        </svg>
+                    </a> -->
+                </div>
+
+            </div>
+        }
+    </div>
+</section>
