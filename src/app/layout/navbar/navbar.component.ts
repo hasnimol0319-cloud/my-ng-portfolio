@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import menus from '@public/db/menu.json';
+import { Menu } from '../../models/menu';
 
-interface Menu{
-  id: number,
-  name: string,
-  url: string
-}
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +12,7 @@ interface Menu{
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit{
-  menu:Menu[] = [];
+  menu: Menu[] = [];
   isMenuOpen = false;
 
   alert(h: string) {
