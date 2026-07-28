@@ -19,6 +19,10 @@ export const routes: Routes = [
         loadComponent: () => import('../app/components/projects/projects.component').then(m => m.ProjectsComponent)
     },
     {
+        path: 'articles',
+        loadComponent: () => import('../app/components/articles/articles.component').then(m => m.ArticlesComponent)
+    },
+    {
         path: 'not-found',
         loadComponent: () => import('../app/components/not-found/not-found.component').then(m => m.NotFoundComponent)
     },

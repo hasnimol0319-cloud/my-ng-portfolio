@@ -19,6 +19,11 @@
             "id": 4,
             "name": "Projects",
             "url": "/projects"
+        },
+        {
+            "id": 5,
+            "name": "Articles",
+            "url": "/articles"
         }
     ]
 }
