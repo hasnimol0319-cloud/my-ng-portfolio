@@ -5,7 +5,7 @@
         <!-- About -->
         <div class="footer-section">
             <h2 class="footer-logo">
-                &lt;/&gt; HasDev
+                Dev<span>Has</span>
             </h2>
 
             <p>
@@ -23,19 +23,19 @@
         <div class="footer-section">
             <h3>Contact</h3>
 
-            <a href="mailto:your@email.com">
+            <a [href]="'mailto:' + email">
                 <i class="fa-solid fa-envelope"></i>
-                youremail.com
+                {{email}}
             </a>
 
-            <a href="tel:+85512345678">
+            <a [href]="'tel:' + phone">
                 <i class="fa-solid fa-phone"></i>
-                +855 66 817 892
+                {{phone}}
             </a>
 
-            <a href="#">
+            <a [href]="locationLink" target="_blank">
                 <i class="fa-solid fa-location-dot"></i>
-                Phnom Penh, Cambodia
+                {{location}}
             </a>
         </div>
 
@@ -43,11 +43,9 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
 
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            @for (m of menu; track m.id) {
+                <a [routerLink]="m.url" routerLinkActive="active">{{m.name}}</a>
+            }
         </div>
 
     </div>
@@ -78,7 +76,7 @@
     </div>
 
     <div class="footer-bottom">
-        © 2026 HasDev. All Rights Reserved.
+        © 2026 DevHas. All Rights Reserved.
     </div>
 
 </footer>

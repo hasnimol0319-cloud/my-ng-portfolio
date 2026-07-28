@@ -1,23 +1,28 @@
 .footer{
     background:#081120;
     color:#cbd5e1;
-    padding:70px 8% 30px;
+    padding:70px 0 30px;
 }
 
 .footer-container{
+    width:min(1200px,90%);
+    margin:auto;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:40px;
 }
 
-.footer-section h3{
+.footer-section h2{
     color:#fff;
+    font-size: 25.6px;
     margin-bottom:20px;
 }
 
 .footer-logo{
-    color:var(--primary);
     margin-bottom:20px;
+    span{
+     color:var(--primary);
+    }
 }
 
 .footer-section p{
