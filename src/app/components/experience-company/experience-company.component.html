@@ -1,5 +1,5 @@
 <section class="experience">
-    <div class="section-head">
+    <div class="section-head animation-fade-in-top">
         <h2>My Experience</h2>
         <p class="description">A timeline of my professional journey and career highlights.</p>
     </div>
@@ -7,7 +7,7 @@
     <div class="timeline">
         <!-- <div class="timeline-line"></div> -->
 
-        @for (item of experiences; track item.id; let i = $index) {
+        @for (item of experiences; track item.id; let i = $index; let odd = $odd) {
             <div class="timeline-item" [class.left]="i % 2 !== 0" [class.right]="i % 2 === 0">
 
                 <div class="icon-wrapper" [style.background]="item.color">
@@ -33,7 +33,7 @@
                     }
                 </div>
 
-                <div class="card">
+                <div class="card" [class]="odd ? 'animation-fade-in-left':'animation-fade-in-right'">
                     <h3>{{ item.role }}</h3>
                     <span class="period">{{ item.period }}</span>
                     <p class="description">{{ item.description }}</p>

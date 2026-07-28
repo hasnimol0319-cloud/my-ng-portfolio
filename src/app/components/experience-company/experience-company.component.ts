@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 interface Experience {
@@ -13,7 +14,7 @@ interface Experience {
 @Component({
   selector: 'app-experience-company',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './experience-company.component.html',
   styleUrl: './experience-company.component.scss'
 })

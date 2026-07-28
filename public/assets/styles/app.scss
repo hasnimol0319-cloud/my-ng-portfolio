@@ -84,6 +84,12 @@ h6 {
 .animation-fade-in-right{
   animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInRight;
 }
+.animation-fade-in-bottom{
+  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInBottom;
+}
+.animation-fade-in-top{
+  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInTop;
+}
 @keyframes fadeInLeft {
   0%{
     opacity: 0;
@@ -103,5 +109,25 @@ h6 {
   100%{
     opacity: 1;
     transform: translate(0);
+  }
+}
+@keyframes fadeInBottom {
+  0%{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInTop {
+  0%{
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
   }
 }
