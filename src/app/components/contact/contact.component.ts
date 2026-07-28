@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { AlertService } from '../../services/message-alert/alert.service';
 
 // EmailJS setup (https://www.emailjs.com):
 // 1. Create a free account and an Email Service (e.g. Gmail).
@@ -24,7 +25,7 @@ export class ContactComponent {
   submitted = false;
   sending = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private alertService: AlertService) {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -41,6 +42,7 @@ export class ContactComponent {
     this.submitted = true;
 
     if (this.form.invalid) {
+      this.alertService.info('Please fill the form to submit the message.')
       return;
     }
 
@@ -59,12 +61,12 @@ export class ContactComponent {
         this.sending = false;
         this.submitted = false;
         this.form.reset();
-        alert('Your message has been sent successfully! I will get back to you soon.');
+        this.alertService.success('Your message has been sent successfully! I will get back to you soon.');
       })
       .catch((err) => {
         console.error('EmailJS error:', err);
         this.sending = false;
-        alert('Something went wrong while sending your message. Please try again later.');
+        this.alertService.error('Something went wrong while sending your message. Please try again later.');
       });
   }
 }
