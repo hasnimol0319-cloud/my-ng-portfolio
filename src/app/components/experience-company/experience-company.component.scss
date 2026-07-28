@@ -1,0 +1,138 @@
+.experience{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:4rem;
+}
+
+.timeline{
+    position:relative;
+}
+
+.timeline-item{
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+    min-height:120px;
+    margin-bottom:2.5rem;
+}
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    top:20px;              /* starts at the icon's center */
+    left:50%;
+    bottom:-2.5rem;         /* reaches down to the next icon (covers the margin-bottom gap) */
+    width:2px;
+    transform:translateX(-50%);
+    background:rgba(255,255,255,.08); /* match your card border color */
+}
+
+.timeline-item:last-child::before{
+    display:none;           /* no dangling line after the last item */
+}
+
+.icon-wrapper{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:40px;
+    height:40px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 6px 16px rgba(15,23,42,.18);
+    z-index:2;
+}
+
+.icon-wrapper svg{
+    width:18px;
+    height:18px;
+}
+
+.card{
+    width:calc(50% - 3.5rem);
+    border: 1px solid var(--primary);
+    border-radius: 1rem;
+    padding: 1rem;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 34px rgba(15,23,42,.1);
+}
+
+.timeline-item.right .card{
+    margin-left:auto;
+}
+
+.timeline-item.left .card{
+    margin-right:auto;
+}
+
+.card .period{
+    display:block;
+    margin:.25rem 0 .75rem;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--primary);
+}
+
+
+.divider{
+    height:1px;
+    background: var(--primary);
+    margin:1.25rem 0;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+}
+
+.tag{
+    font-size:.78rem;
+    font-weight:500;
+    color:#fff;
+    background:var(--primary);
+    border-radius:8px;
+    padding:.35rem .7rem;
+}
+
+
+@media(max-width:768px){
+    .experience {
+        margin: 0;
+    }
+    .timeline-line{
+        left:20px;
+    }
+
+    .timeline-item{
+        padding-left:56px;
+    }
+
+    .icon-wrapper{
+        left:20px;
+        transform:translateX(-50%);
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .timeline-item.right .card,
+    .timeline-item.left .card{
+        margin:0;
+    }
+}
