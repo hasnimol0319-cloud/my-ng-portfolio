@@ -98,13 +98,10 @@
     transform:translateY(-2px);
 }
 .actions-wrap{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    display: none;
 }
 
 .hamburger, .actions-sm{
-    display:none;
     cursor:pointer;
 
     background:none;
@@ -138,8 +135,10 @@
         justify-content: space-between;
     }
 
-    .hamburger, .actions-sm{
-        display:block;
+    .actions-wrap{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 
     .nav-links{
