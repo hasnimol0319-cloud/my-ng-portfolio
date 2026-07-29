@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-feature-image',
@@ -8,6 +8,4 @@ import { Component, Input } from '@angular/core';
   styleUrl: './feature-image.component.scss'
 })
 export class FeatureImageComponent {
-  @Input() imageSrc: string = 'assets/images/coding.jpg';
-  @Input() alt: string = 'Working on a laptop';
 }

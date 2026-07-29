@@ -1,52 +1,19 @@
-.feature-frame{
-    position:relative;
-    width:100%;
-    max-width:420px;
-    aspect-ratio:758 / 536;
-    margin:auto;
+.night-vision-effect {
+  $line-width: 5px;
+  max-width: 350px;
+
+  background-image: 
+  url("/images/gif/se_has_intro.gif"), 
+  radial-gradient(circle at center, var(--primary) 0%, #085f88 60%, rgb(0 0 0 / 13%) 100%), 
+  repeating-linear-gradient(rgba(87, 86, 86, 0) 0px, rgba(0, 0, 0, 0.116) 2px, rgba(0, 0, 0, 0) 4px);
+
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
 }
 
-.clip-defs{
-    position:absolute;
-    width:0;
-    height:0;
-}
-
-.feature-photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    clip-path:url(#chamferClip);
-}
-
-.border-overlay{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-}
-
-.chaser{
-    filter:drop-shadow(0 0 5px rgba(37,99,235,.85));
-    animation:chase 5s linear infinite;
-}
-
-@keyframes chase{
-    from{
-        stroke-dashoffset:0;
-    }
-    to{
-        stroke-dashoffset:-100;
-    }
-}
-
-/* ---------- Responsive ---------- */
-
-@media(max-width:480px){
-
-    .feature-frame{
-        max-width:320px;
-    }
+[class$=-effect] img {
+	vertical-align: top !important;
+	margin: 0 !important;
+	opacity: 0 !important;
 }
