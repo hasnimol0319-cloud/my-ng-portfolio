@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import solutions from '@public/db/solutions.json';
+import { FeatureImageComponent } from '../feature-image/feature-image.component';
 
 interface Solution {
   id: number,
@@ -10,18 +11,18 @@ interface Solution {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [FeatureImageComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   solutionList: Solution[] = [];
 
-  constructor() {}
+  constructor() { }
 
-ngOnInit() {
-  this.getSolution();
-}
+  ngOnInit() {
+    this.getSolution();
+  }
   getSolution() {
     this.solutionList = solutions.solutions;
   }

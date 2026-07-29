@@ -1,0 +1,52 @@
+.feature-frame{
+    position:relative;
+    width:100%;
+    max-width:420px;
+    aspect-ratio:758 / 536;
+    margin:auto;
+}
+
+.clip-defs{
+    position:absolute;
+    width:0;
+    height:0;
+}
+
+.feature-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    clip-path:url(#chamferClip);
+}
+
+.border-overlay{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+.chaser{
+    filter:drop-shadow(0 0 5px rgba(37,99,235,.85));
+    animation:chase 5s linear infinite;
+}
+
+@keyframes chase{
+    from{
+        stroke-dashoffset:0;
+    }
+    to{
+        stroke-dashoffset:-100;
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:480px){
+
+    .feature-frame{
+        max-width:320px;
+    }
+}

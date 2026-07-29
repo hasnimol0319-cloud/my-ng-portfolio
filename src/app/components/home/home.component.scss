@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: .5rem;
 }
 .image-left{
     flex: 1;
@@ -26,7 +27,7 @@
     min-width: 0;
     img{
         width: 100%;
-        max-width: 450px;
+        max-width: 350px;
         height: auto;
     }
 }

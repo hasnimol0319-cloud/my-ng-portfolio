@@ -1,0 +1,75 @@
+.profile-frame{
+    position:relative;
+    width:300px;
+    height:300px;
+    margin:auto;
+}
+
+.my-ring{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    transform-origin:50% 50%;
+}
+
+.my-ring-1{
+    animation:spin 40s linear infinite;
+}
+
+.my-ring-2{
+    animation:spin-reverse 26s linear infinite;
+}
+
+.my-ring-3{
+    animation:spin 9s linear infinite;
+    filter:drop-shadow(0 0 6px rgba(37,99,235,.55));
+}
+
+.photo{
+    position:absolute;
+    inset:64px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#0c1020;
+    box-shadow:0 0 0 4px rgba(255,255,255,.05);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse{
+    from{
+        transform:rotate(360deg);
+    }
+    to{
+        transform:rotate(0deg);
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:480px){
+
+    .profile-frame{
+        width:230px;
+        height:230px;
+    }
+
+    .photo{
+        inset:48px;
+    }
+}

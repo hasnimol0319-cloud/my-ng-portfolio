@@ -1,0 +1,31 @@
+<div class="profile-frame">
+
+    <svg class="my-ring my-ring-1" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="142"
+            fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.5"
+            stroke-dasharray="42 9 14 7 26 11 9 28 18 6" stroke-linecap="round"></circle>
+    </svg>
+
+    <svg class="my-ring my-ring-2" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="122"
+            fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"
+            stroke-dasharray="10 6 30 8 16 6 22 10" stroke-linecap="round"></circle>
+    </svg>
+
+    <svg class="my-ring my-ring-3" viewBox="0 0 300 300">
+        <defs>
+            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7dd3fc"></stop>
+                <stop offset="100%" stop-color="var(--primary,#2563eb)"></stop>
+            </linearGradient>
+        </defs>
+        <circle cx="150" cy="150" r="103"
+            fill="none" stroke="url(#ringGradient)" stroke-width="6"
+            stroke-dasharray="560 90" stroke-linecap="round"></circle>
+    </svg>
+
+    <div class="photo">
+        <img [src]="imageSrc" [alt]="alt">
+    </div>
+
+</div>
