@@ -4,12 +4,16 @@
         <a routerLink="/" class="logo">
             Dev<span>Has</span>
         </a>
-
+        <div class="actions-wrap">
+            <div class="actions-sm">
+            <a routerLink="/contact" class="btn-cin"><i class="fa-solid fa-message"></i></a>
+        </div>
         <button type="button" class="hamburger" [class.is-open]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
+        </div>
 
         <nav class="nav-links" [class.is-open]="isMenuOpen">
             @for (m of menu; track m.id) {

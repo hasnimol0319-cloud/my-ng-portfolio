@@ -97,8 +97,13 @@
     background:#0ea5e9;
     transform:translateY(-2px);
 }
+.actions-wrap{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-.hamburger{
+.hamburger, .actions-sm{
     display:none;
     cursor:pointer;
 
@@ -133,7 +138,7 @@
         justify-content: space-between;
     }
 
-    .hamburger{
+    .hamburger, .actions-sm{
         display:block;
     }
 
