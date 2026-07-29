@@ -79,35 +79,17 @@
             <p>Feel free to reach out through any of these channels — I usually reply within a day.</p>
 
             <ul class="info-list">
-                <li>
-                    <span class="info-icon">
-                        <i class="fa-solid fa-envelope"></i>
-                    </span>
-                    <div>
-                        <span class="label">Email</span>
-                        <a href="mailto:hasnimol0319@gmail.com">hasnimol0319&#64;gmail.com</a>
-                    </div>
-                </li>
-
-                <li>
-                    <span class="info-icon">
-                        <i class="fa-solid fa-phone"></i>
-                    </span>
-                    <div>
-                        <span class="label">Phone</span>
-                        <a href="tel:+85566817892">+855 66 817 892</a>
-                    </div>
-                </li>
-
-                <li>
-                    <span class="info-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </span>
-                    <div>
-                        <span class="label">Location</span>
-                        <a [href]="locationLink" target="_blank">Phnom Penh, Cambodia</a>
-                    </div>
-                </li>
+                @for (c of contactList; track c.id) {
+                    <li>
+                        <span class="info-icon">
+                            <i [class]="c.icon"></i>
+                        </span>
+                        <div>
+                            <span class="label">{{c.name}}</span>
+                            <a [href]="c.url" target="_blank">{{c.value}}</a>
+                        </div>
+                    </li>
+                }
             </ul>
 
             <div class="divider"></div>
@@ -115,21 +97,11 @@
             <span class="label">Follow Me</span>
 
             <div class="social-links">
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
+                @for (s of socialList; track s.id) {
+                    <a [href]="s.url" target="_blank" rel="noopener noreferrer">
+                        <i [class]="s.icon"></i>
+                    </a>
+                }
             </div>
         </div>
 

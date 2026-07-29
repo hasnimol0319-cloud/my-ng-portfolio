@@ -1,0 +1,57 @@
+{
+    "contact": [
+        {
+            "id": 1,
+            "name": "Email",
+            "value": "hasnimol0319@gmail.com",
+            "icon": "fa-solid fa-envelope",
+            "url": "mailto:hasnimol0319@gmail.com"
+        },
+        {
+            "id": 2,
+            "name": "Phone",
+            "value": "+855 66 817 892",
+            "icon": "fa-solid fa-phone",
+            "url": "tel:+85566817892"
+        },
+        {
+            "id": 3,
+            "name": "Location",
+            "value": "Phnom Penh, Cambodia",
+            "icon": "fa-solid fa-location-dot",
+            "url": "https://www.google.com/maps/place/Toi/@11.5981772,104.8604297,49m/data=!3m1!1e3!4m6!3m5!1s0x310953b5147b7a47:0x26c42c22123aa276!8m2!3d11.5982825!4d104.8604314!16s%2Fg%2F11p13w_1gl?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
+        }
+    ],
+    "social": [
+        {
+            "id": 1,
+            "name": "GitHub",
+            "icon": "fab fa-github",
+            "url": "https://github.com/hasnimol0319-cloud"
+        },
+        {
+            "id": 2,
+            "name": "LinkedIn",
+            "icon": "fab fa-linkedin",
+            "url": "https://www.linkedin.com/in/se-has-66b17a3ab/"
+        },
+        {
+            "id": 2,
+            "name": "FaceBook",
+            "icon": "fab fa-facebook",
+            "url": "https://www.facebook.com/share/1HzqrggsU1/?mibextid=wwXIfr"
+        },
+        {
+            "id": 4,
+            "name": "Instagram",
+            "icon": "fab fa-instagram",
+            "url": "https://www.instagram.com/thankseverythingsehas1901?igsh=MXUxejhlbjZvY21hOA%3D%3D&utm_source=qr"
+        },
+        {
+            "id": 5,
+            "name": "Medium",
+            "icon": "fab fa-medium",
+            "url": "https://medium.com/@hasnimol0319"
+        }
+    ]
+}

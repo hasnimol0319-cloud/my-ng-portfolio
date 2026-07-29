@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../../shared/services/message-alert/alert.service';
 import { EmailSendingService } from '../../services/email-sending.service';
+import { contact, social } from '@public/db/contact.json';
 
 @Component({
   selector: 'app-contact',
@@ -10,23 +11,40 @@ import { EmailSendingService } from '../../services/email-sending.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
 
-  form: FormGroup;
+  form!: FormGroup;
   submitted = false;
   sending = false;
-  email = 'hasnimol0319@gmail.com';
-  phone = '+855 66 817 892';
-  location = 'Phnom Penh, Cambodia'
-  locationLink = 'https://www.google.com/maps/place/Toi/@11.5981772,104.8604297,49m/data=!3m1!1e3!4m6!3m5!1s0x310953b5147b7a47:0x26c42c22123aa276!8m2!3d11.5982825!4d104.8604314!16s%2Fg%2F11p13w_1gl?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D';
+  email = 'hasnimol0319@gmail.com'
+  contactList: any[] = [];
+  socialList: any[] = [];
 
   constructor(private fb: FormBuilder, private alertService: AlertService, private emailSendingService: EmailSendingService) {
+    
+  }
+
+  ngOnInit(): void {
+    this.initForm();
+    this.getContactList();
+    this.getSocialList();
+  }
+
+  initForm() {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       subject: ['', [Validators.required]],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
+  }
+
+  getContactList(){
+    this.contactList = contact;
+  }
+
+  getSocialList(){
+    this.socialList = social;
   }
 
   get f() {
