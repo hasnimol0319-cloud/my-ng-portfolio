@@ -3,6 +3,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { AlertService } from '../../shared/services/message-alert/alert.service';
 import { EmailSendingService } from '../../services/email-sending.service';
 import { contact, social } from '@public/db/contact.json';
+import { Contact } from '../../models/contact';
+import { Social } from '../../models/social';
 
 @Component({
   selector: 'app-contact',
@@ -17,8 +19,8 @@ export class ContactComponent implements OnInit{
   submitted = false;
   sending = false;
   email = 'hasnimol0319@gmail.com'
-  contactList: any[] = [];
-  socialList: any[] = [];
+  contactList: Contact[] = [];
+  socialList: Social[] = [];
 
   constructor(private fb: FormBuilder, private alertService: AlertService, private emailSendingService: EmailSendingService) {
     
