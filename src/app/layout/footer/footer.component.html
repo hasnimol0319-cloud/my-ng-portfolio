@@ -22,21 +22,13 @@
         <!-- Contact -->
         <div class="footer-section">
             <h3>Contact</h3>
+            @for (c of contactList; track c.id) {
+                <a [href]="c.url">
+                    <i [class]="c.icon"></i>
+                    {{c.value}}
+                </a>
 
-            <a [href]="'mailto:' + email">
-                <i class="fa-solid fa-envelope"></i>
-                {{email}}
-            </a>
-
-            <a [href]="'tel:' + phone">
-                <i class="fa-solid fa-phone"></i>
-                {{phone}}
-            </a>
-
-            <a [href]="locationLink" target="_blank">
-                <i class="fa-solid fa-location-dot"></i>
-                {{location}}
-            </a>
+            }
         </div>
 
         <!-- Quick Links -->
@@ -52,26 +44,11 @@
 
     <!-- Social -->
     <div class="social-links">
-
-        <a href="#">
-            <i class="fab fa-github"></i>
-        </a>
-
-        <a href="#">
-            <i class="fab fa-linkedin"></i>
-        </a>
-
-        <a href="#">
-            <i class="fab fa-facebook"></i>
-        </a>
-
-        <a href="#">
-            <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="#">
-            <i class="fab fa-x-twitter"></i>
-        </a>
+        @for (s of socialList; track s.id) {
+            <a [href]="s.url" target="_blank" rel="noopener noreferrer">
+                <i [class]="s.icon"></i>
+            </a>
+        }
 
     </div>
 
