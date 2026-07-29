@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-import { AlertService } from '../../services/message-alert/alert.service';
+import { AlertService } from '../../shared/services/message-alert/alert.service';
 
 // EmailJS setup (https://www.emailjs.com):
 // 1. Create a free account and an Email Service (e.g. Gmail).

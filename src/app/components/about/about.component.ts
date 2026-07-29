@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PromiseTabsComponent } from './promise-tabs/promise-tabs.component';
 import { SkillsComponent } from "./skills/skills.component";
 import { ExperiencesComponent } from "./experiences/experiences.component";
-import { ProfilePhotoComponent } from '../profile-photo/profile-photo.component';
+import { ProfilePhotoComponent } from '../../shared/components/profile-photo/profile-photo.component';
 
 @Component({
   selector: 'app-about',

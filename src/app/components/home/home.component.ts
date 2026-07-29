@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import solutions from '@public/db/solutions.json';
-import { FeatureImageComponent } from '../feature-image/feature-image.component';
+import { FeatureImageComponent } from '../../shared/components/feature-image/feature-image.component';
 import { WorkflowComponent } from '../workflow/workflow.component';
 
 interface Solution {
