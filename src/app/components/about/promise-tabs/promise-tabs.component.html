@@ -35,11 +35,11 @@
     [class.enter]="i === activeIndex && replayAnimation">
 
 
+    <img class="panel-img" [src]="tab.image" alt="" srcset="">
     <div class="panel-text">
       <h4>{{ tab.heading }}</h4>
       <p class="description">{{ tab.description }}</p>
     </div>
-    <div class="panel-img" [style.background-image]="'url(' + tab.image + ')'"></div>
 
   </div>
 

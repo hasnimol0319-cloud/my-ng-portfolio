@@ -34,7 +34,7 @@ export class PromiseTabsComponent implements AfterViewInit, OnDestroy {
       heading: 'Architecture before code',
       description:
         'I map data flow, state, and module boundaries before writing a single component so the system scales without a rewrite.',
-      image: 'images/Architecture.jpg'
+      image: 'images/architecture.png'
     },
     {
       id: 'journey',
@@ -43,7 +43,7 @@ export class PromiseTabsComponent implements AfterViewInit, OnDestroy {
       heading: 'Performance is a feature',
       description:
         "Load time and responsiveness aren't cleanup tasks for later. I budget for them from the first commit.",
-      image: 'images/Performance.jpg'
+      image: 'images/performance.png'
     },
     {
       id: 'values',
