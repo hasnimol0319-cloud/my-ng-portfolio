@@ -1,0 +1,63 @@
+<section class="workflow">
+    <div class="section-head">
+        <h3>How I work?</h3>
+        <p class="description">Make the engineering pipeline clear to show you the value of clean execution, not just coding.</p>
+    </div>
+
+    <div class="steps">
+        @for (step of steps; track step.id; let i = $index) {
+
+            <div class="step">
+
+                <div class="badge">
+                    <div class="icon">
+                        @switch (step.icon) {
+                            @case ('discovery') {
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="7"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            }
+                            @case ('architecture') {
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            }
+                            @case ('optimization') {
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
+                                    <path d="M12 12 15 8"></path>
+                                    <path d="M12 2v2"></path>
+                                </svg>
+                            }
+                            @case ('deployment') {
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                                </svg>
+                            }
+                        }
+                    </div>
+                    <span class="number">{{ step.number }}</span>
+                </div>
+
+                <h4>{{ step.title }}</h4>
+                <p class="description">{{ step.description }}</p>
+
+                @if (i < steps.length - 1) {
+                    <span class="arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <polyline points="14 6 20 12 14 18"></polyline>
+                        </svg>
+                    </span>
+                }
+
+            </div>
+        }
+    </div>
+</section>

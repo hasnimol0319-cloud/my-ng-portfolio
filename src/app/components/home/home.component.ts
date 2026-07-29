@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import solutions from '@public/db/solutions.json';
 import { FeatureImageComponent } from '../feature-image/feature-image.component';
+import { WorkflowComponent } from '../workflow/workflow.component';
 
 interface Solution {
   id: number,
@@ -11,7 +12,7 @@ interface Solution {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FeatureImageComponent],
+  imports: [FeatureImageComponent, WorkflowComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
