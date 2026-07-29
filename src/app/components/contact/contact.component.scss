@@ -173,9 +173,8 @@
     justify-content:center;
 }
 
-.info-icon svg{
-    width:18px;
-    height:18px;
+.info-icon i{
+    font-size: 18px;
 }
 
 .info-list span.label{
@@ -229,9 +228,8 @@
     transition:.25s;
 }
 
-.social-links a svg{
-    width:16px;
-    height:16px;
+.social-links a i{
+    font-size: 18px;
 }
 
 .social-links a:hover{
