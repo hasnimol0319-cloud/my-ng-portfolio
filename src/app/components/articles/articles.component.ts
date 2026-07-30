@@ -22,6 +22,7 @@ interface Article {
 export class ArticlesComponent implements OnInit {
 
   articles: Article[] = [];
+  myArticles: Article[] = [];
 
   ngOnInit(): void {
     this.getArticles();
@@ -80,5 +81,18 @@ export class ArticlesComponent implements OnInit {
         link: 'https://medium.com/@ponleu913/spread-operator-in-javascript-76d4e2083627'
       }
     ];
+
+    this.myArticles = [
+      {
+        id: 1,
+        title: 'Stop Hardcoding Buttons in Every Angular Component',
+        excerpt: 'Most Angular tutorials teach you to put buttons directly in your component template, wire up (click) handlers, and call it a day. It works...',
+        source: '',
+        author: 'Se Has',
+        date: 'Jul 30',
+        image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*SLeV0Cbzf11dC5qhkX65MQ.png',
+        link: 'https://medium.com/@hasnimol0319/stop-hardcoding-buttons-in-every-angular-component-a319ab5fac69'
+      }
+    ]
   }
 }

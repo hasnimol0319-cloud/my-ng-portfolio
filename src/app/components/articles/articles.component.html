@@ -39,3 +39,45 @@
         }
     </div>
 </section>
+
+<section class="articles">
+    <div class="section-head animation-fade-in-top">
+        <h2>My Articles</h2>
+        <p>My Articles Explore my latest deep dives and insights on modern frontend development, originally published on Medium.</p>
+    </div>
+
+    <div class="articles-grid">
+        @for (a of myArticles; track a.id; let odd = $odd) {
+            <a class="article-card" [class]="!odd ? 'animation-fade-in-left':'animation-fade-in-right'" [href]="a.link" target="_blank" rel="noopener noreferrer">
+
+                <div class="thumb">
+                    <img [src]="a.image" [alt]="a.title" loading="lazy">
+                </div>
+
+                <div class="info">
+                    <span class="source">{{ a.source }}</span>
+                    <h3>{{ a.title }}</h3>
+                    <p>{{ a.excerpt }}</p>
+
+                    <div class="meta">
+                        @if (a.author) {
+                            <span>{{ a.author }}</span>
+                        }
+                        @if (a.date) {
+                            <span class="dot">•</span>
+                            <span>{{ a.date }}</span>
+                        }
+                        <span class="read-more">
+                            Read on Medium
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17 L17 7"></path>
+                                <path d="M8 7 h9 v9"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+            </a>
+        }
+    </div>
+</section>
