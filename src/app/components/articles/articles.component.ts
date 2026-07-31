@@ -1,5 +1,6 @@
-import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
 
 interface Article {
   id: number;
@@ -9,13 +10,15 @@ interface Article {
   author: string;
   date: string;
   image: string;
-  link: string;
+  link?: string;     // external Medium URL — used when there's no slug
+  slug?: string;      // if set, the card links internally to /blog/:slug instead
+  mdFile?: string;    // path to the markdown file blog-post should load for this slug
 }
 
 @Component({
   selector: 'app-articles',
   standalone: true,
-  imports: [NgClass],
+  imports: [RouterLink, NgTemplateOutlet],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })
@@ -54,21 +57,11 @@ export class ArticlesComponent implements OnInit {
         id: 3,
         title: 'Signal Forms vs Reactive Forms: The Migration Path Nobody’s Talking About',
         excerpt: 'Angular 21 made Signal Forms default. Here’s what actually breaks when you migrate.',
-        source: 'JavaScript in Plain English',
+        source: '',
         author: 'Krati Varshney',
         date: 'Feb 07',
         image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*y1_6IfqaIh7ihN6vAj0Gew.png',
         link: 'https://medium.com/javascript-in-plain-english/signal-forms-vs-reactive-forms-the-migration-path-nobodys-talking-about-dd0fc6f6f5e3'
-      },
-      {
-        id: 4,
-        title: 'Solution to the Angular Component Design Challenge',
-        excerpt: 'This is the solution to the design problem published here Can You Optimize This Angular Design Problem?',
-        source: 'Level Up Codeing',
-        author: 'Pawan Kumawat',
-        date: 'Jul 27',
-        image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*kcaUam9uVAaHYUPF.png',
-        link: 'https://medium.com/gitconnected/solution-to-the-angular-component-design-challange-ffef7eccc52a'
       },
       {
         id: 5,
@@ -91,7 +84,9 @@ export class ArticlesComponent implements OnInit {
         author: 'Se Has',
         date: 'Jul 30',
         image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*SLeV0Cbzf11dC5qhkX65MQ.png',
-        link: 'https://medium.com/@hasnimol0319/stop-hardcoding-buttons-in-every-angular-component-a319ab5fac69'
+        link: 'https://medium.com/@hasnimol0319/stop-hardcoding-buttons-in-every-angular-component-a319ab5fac69',
+        slug: 'angular-wizard-footer-pattern',
+        mdFile: 'assets/content/angular-wizard-footer-pattern.md'
       }
     ]
   }

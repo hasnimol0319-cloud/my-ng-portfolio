@@ -3,6 +3,8 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
+import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,5 +13,8 @@ export const appConfig: ApplicationConfig = {
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled'
     })),
-    provideClientHydration(),]
+    provideClientHydration(),
+    provideHttpClient(), // required — ngx-markdown fetches files via HttpClient
+    provideMarkdown(),
+  ]
 };

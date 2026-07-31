@@ -1,0 +1,226 @@
+.blog-post{
+    width:min(820px,92%);
+    margin:auto;
+}
+
+.post-card{
+    background:#12172a;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+    box-shadow:0 16px 34px rgba(0,0,0,.35);
+    padding:2.5rem;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+
+    font-size:.88rem;
+    font-weight:600;
+    color:var(--primary,#38bdf8);
+    margin-bottom:2rem;
+    
+    transition:.25s;
+}
+
+.back-link svg{
+    width:16px;
+    height:16px;
+}
+
+.back-link:hover{
+    gap:.7rem;
+}
+
+/* ---------- Loading / error states ---------- */
+
+.state{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    padding:4rem 0;
+}
+
+.state p{
+    color:#8b93a7;
+    font-size:.9rem;
+}
+
+.state.error p{
+    color:#f87171;
+}
+
+.spinner{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,.1);
+    border-top-color:var(--primary,#38bdf8);
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.markdown-body.hidden{
+    display:none;
+}
+
+/* ---------- Markdown typography ---------- */
+/* ngx-markdown injects raw HTML that Angular's scoped styles can't reach,
+   so ::ng-deep is required here to style the rendered content. */
+
+.markdown-body{
+    color:#c3cadb;
+    font-size:.98rem;
+    line-height:1.75;
+}
+
+.markdown-body ::ng-deep h1{
+    font-size:1.9rem;
+    font-weight:800;
+    color:#fff;
+    margin:0 0 1.25rem;
+    line-height:1.3;
+}
+
+.markdown-body ::ng-deep h2{
+    font-size:1.4rem;
+    font-weight:700;
+    color:#fff;
+    margin:2.25rem 0 1rem;
+    padding-top:.5rem;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.markdown-body ::ng-deep h2:first-child{
+    border-top:none;
+    padding-top:0;
+    margin-top:0;
+}
+
+.markdown-body ::ng-deep h3{
+    font-size:1.12rem;
+    font-weight:700;
+    color:#fff;
+    margin:1.75rem 0 .75rem;
+}
+
+.markdown-body ::ng-deep p{
+    margin-bottom:1.1rem;
+}
+
+.markdown-body ::ng-deep a{
+    color:var(--primary,#38bdf8);
+    text-decoration:underline;
+    text-underline-offset:2px;
+}
+
+.markdown-body ::ng-deep strong{
+    color:#fff;
+    font-weight:700;
+}
+
+.markdown-body ::ng-deep em{
+    color:#e2e8f0;
+}
+
+.markdown-body ::ng-deep ul,
+.markdown-body ::ng-deep ol{
+    margin:0 0 1.1rem 1.4rem;
+}
+
+.markdown-body ::ng-deep li{
+    margin-bottom:.5rem;
+}
+
+.markdown-body ::ng-deep li > ul,
+.markdown-body ::ng-deep li > ol{
+    margin-top:.5rem;
+}
+
+.markdown-body ::ng-deep blockquote{
+    margin:1.5rem 0;
+    padding:.25rem 0 .25rem 1.1rem;
+    border-left:3px solid var(--primary,#38bdf8);
+    color:#8b93a7;
+    font-style:italic;
+}
+
+.markdown-body ::ng-deep hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,.08);
+    margin:2.5rem 0;
+}
+
+/* inline code */
+.markdown-body ::ng-deep code{
+    background:rgba(255,255,255,.08);
+    color:#7dd3fc;
+    padding:.2em .45em;
+    border-radius:5px;
+    font-size:.85em;
+    font-family:'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* code blocks */
+.markdown-body ::ng-deep pre{
+    background:#0c1020;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:10px;
+    padding:1.1rem 1.25rem;
+    overflow-x:auto;
+    margin:1.5rem 0;
+}
+
+.markdown-body ::ng-deep pre code{
+    background:none;
+    color:#dbeafe;
+    padding:0;
+    font-size:.85rem;
+    line-height:1.6;
+}
+
+.markdown-body ::ng-deep table{
+    width:100%;
+    border-collapse:collapse;
+    margin:1.5rem 0;
+    font-size:.88rem;
+}
+
+.markdown-body ::ng-deep th,
+.markdown-body ::ng-deep td{
+    border:1px solid rgba(255,255,255,.08);
+    padding:.6rem .8rem;
+    text-align:left;
+}
+
+.markdown-body ::ng-deep th{
+    background:rgba(255,255,255,.04);
+    color:#fff;
+}
+
+.markdown-body ::ng-deep img{
+    max-width:100%;
+    border-radius:10px;
+    margin:1rem 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:580px){
+
+    .post-card{
+        padding: 1rem;
+    }
+
+    .markdown-body ::ng-deep h1{
+        font-size:1.5rem;
+    }
+}

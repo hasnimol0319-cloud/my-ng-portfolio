@@ -130,6 +130,11 @@
     transition:.25s;
 }
 
+.arrow-up-right{
+    transform: rotate(-30);
+    display: inline-block;
+}
+
 .read-more svg{
     width:13px;
     height:13px;
