@@ -1,52 +1,43 @@
 <section class="articles animation-fade-in-top">
-    <div class="section-head animation-fade-in-top">
+    <div class="section-head">
         <h2>My Articles</h2>
-        <p>My Articles Explore my latest deep dives and insights on modern frontend development, originally published on Medium.</p>
+        <p>My Articles Explore my latest deep dives and insights on modern frontend development, originally published on
+            Medium.</p>
     </div>
 
+    @if (loading) {
+    <div class="state loading">
+        <span class="spinner"></span>
+        <p>Loading article...</p>
+    </div>
+    }
     <div class="articles-grid">
-        @for (a of myArticles; track a.id) {
+        @for (a of myArticleData(); track a.id) {
 
-            @if (a.slug) {
-                <a class="article-card" [routerLink]="['/blog', a.slug]">
-                    <ng-container *ngTemplateOutlet="cardContent; context: { $implicit: a, internal: true }"></ng-container>
-                </a>
-            } @else {
-                <a class="article-card" [href]="a.link" target="_blank" rel="noopener noreferrer">
-                    <ng-container *ngTemplateOutlet="cardContent; context: { $implicit: a, internal: false }"></ng-container>
-                </a>
-            }
+        <a class="article-card">
+            <div class="thumb">
+                <img [src]="a.image" [alt]="a.title" loading="lazy">
+            </div>
+            <div class="info">
+                <h3>{{ a.title }}</h3>
+                <p>{{ a.description }}</p>
+                <div class="meta">
+                    <a [routerLink]="['/blog', a.slug]" class="read-more seft">
+                        Read
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a [href]="a.url" target="_blank" class="read-more seft medium">
+                        Read on Medium
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </a>
         }
     </div>
-
-    <ng-template #cardContent let-a let-internal="internal">
-        <div class="thumb">
-            <img [src]="a.image" [alt]="a.title" loading="lazy">
-        </div>
-
-        <div class="info">
-            <span class="source">{{ a.source }}</span>
-            <h3>{{ a.title }}</h3>
-            <p>{{ a.excerpt }}</p>
-
-            <div class="meta">
-                @if (a.author) {
-                    <span>{{ a.author }}</span>
-                }
-                @if (a.date) {
-                    <span class="dot">•</span>
-                    <span>{{ a.date }}</span>
-                }
-                <span class="read-more">
-                    {{ internal ? 'Read Article' : 'Read on Medium' }}
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </span>
-            </div>
-        </div>
-    </ng-template>
 </section>
 <section class="articles animation-fade-in-bottom">
-    <div class="section-head animation-fade-in-bottom">
+    <div class="section-head">
         <h2>Articles I'm Reading</h2>
         <p>Worth-sharing reads on frontend development, curated from Medium</p>
     </div>
@@ -54,41 +45,29 @@
     <div class="articles-grid">
         @for (a of articles; track a.id) {
 
-            @if (a.slug) {
-                <a class="article-card" [routerLink]="['/blog', a.slug]">
-                    <ng-container *ngTemplateOutlet="cardContent; context: { $implicit: a, internal: true }"></ng-container>
-                </a>
-            } @else {
-                <a class="article-card" [href]="a.link" target="_blank" rel="noopener noreferrer">
-                    <ng-container *ngTemplateOutlet="cardContent; context: { $implicit: a, internal: false }"></ng-container>
-                </a>
-            }
-        }
-    </div>
-
-    <ng-template #cardContent let-a let-internal="internal">
-        <div class="thumb">
-            <img [src]="a.image" [alt]="a.title" loading="lazy">
-        </div>
-
-        <div class="info">
-            <span class="source">{{ a.source }}</span>
-            <h3>{{ a.title }}</h3>
-            <p>{{ a.excerpt }}</p>
-
-            <div class="meta">
-                @if (a.author) {
+        <a class="article-card" [href]="a.link" target="_blank" rel="noopener noreferrer">
+            <div class="thumb">
+                <img [src]="a.image" [alt]="a.title" loading="lazy">
+            </div>
+            <div class="info">
+                <span class="source">{{ a.source }}</span>
+                <h3>{{ a.title }}</h3>
+                <p>{{ a.description }}</p>
+                <div class="meta">
+                    @if (a.author) {
                     <span>{{ a.author }}</span>
-                }
-                @if (a.date) {
+                    }
+                    @if (a.date) {
                     <span class="dot">•</span>
                     <span>{{ a.date }}</span>
-                }
-                <span class="read-more">
-                    {{ internal ? 'Read Article' : 'Read on Medium' }}
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </span>
+                    }
+                    <a [href]="a.link" target="_blank" class="read-more seft medium">
+                        Read on Medium
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </ng-template>
+        </a>
+        }
+    </div>
 </section>

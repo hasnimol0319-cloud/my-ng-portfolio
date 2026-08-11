@@ -2,8 +2,8 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import { provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
@@ -13,8 +13,8 @@ export const appConfig: ApplicationConfig = {
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled'
     })),
-    provideClientHydration(),
-    provideHttpClient(), // required — ngx-markdown fetches files via HttpClient
+    provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: false })),
+    provideHttpClient(withFetch()), // required — ngx-markdown fetches files via HttpClient
     provideMarkdown(),
   ]
 };

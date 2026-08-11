@@ -2,13 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 
-// Registry of slug -> markdown file. Add a new line here every time you
-// add a new post, and make sure the same slug is used on the article card
-// in articles.component.ts.
-const BLOG_POSTS: Record<string, string> = {
-  'angular-wizard-footer-pattern': 'assets/content/angular-wizard-footer-pattern.md'
-};
-
 @Component({
   selector: 'app-blog-post',
   standalone: true,
@@ -23,11 +16,11 @@ export class BlogPostComponent implements OnInit {
   loading = true;
   loadFailed = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug');
-    const mdFile = slug ? BLOG_POSTS[slug] : null;
+    const mdFile = slug ? 'assets/content/' + slug + '.md' : null;
 
     if (mdFile) {
       this.src = mdFile;

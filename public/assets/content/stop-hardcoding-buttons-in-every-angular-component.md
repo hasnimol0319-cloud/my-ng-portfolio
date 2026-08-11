@@ -4,7 +4,7 @@
 
 Most Angular tutorials teach you to put buttons directly in your component template, wire up `(click)` handlers, and call it a day. It works until your app has five wizard steps, three of them need a "Next" button, one needs a "Skip," and suddenly you're copy-pasting footer markup everywhere and hardcoding navigation logic inside form components that shouldn't know about routing.
 
-Here's how to fix that properly and, just as importantly, when *not* to bother.
+Here's how to fix that properly and, just as importantly, when _not_ to bother.
 
 ## The Naive Version (What Most of Us Write First)
 
@@ -60,7 +60,7 @@ Three issues creep in as soon as you add a third step, reorder the flow, or need
 
 1. **Duplicated markup.** The same three `<button>` tags, copy-pasted into every screen that needs them.
 2. **No single source of truth for the footer.** There's no actual "footer component" just inline HTML repeated per screen. Want to add a loading spinner to every Save button? You're editing N files.
-3. **Tight coupling.** "Next" is hardcoded into the Vehicle component's logic. If you want to reuse the Vehicle form in a flow *without* a Next button, or reorder steps, you're editing component internals instead of configuration.
+3. **Tight coupling.** "Next" is hardcoded into the Vehicle component's logic. If you want to reuse the Vehicle form in a flow _without_ a Next button, or reorder steps, you're editing component internals instead of configuration.
 
 The fix: make the footer a **dumb, reusable component driven by data**, and let each step **register its own actions** instead of owning the buttons itself.
 
@@ -71,9 +71,9 @@ Instead of hardcoding buttons in markup, describe a button as a plain object:
 ```typescript
 // footer-action.model.ts
 export interface FooterAction {
-  id: string;                 // 'save' | 'discard' | 'next' | custom
+  id: string; // 'save' | 'discard' | 'next' | custom
   label: string;
-  color?: 'primary' | 'accent' | 'warn';
+  color?: "primary" | "accent" | "warn";
   disabled?: boolean;
   loading?: boolean;
   handler: () => void;
@@ -89,16 +89,12 @@ This component knows nothing about Vehicles or Customers. It just renders whatev
 ```typescript
 // footer-actions.component.ts
 @Component({
-  selector: 'app-footer-actions',
+  selector: "app-footer-actions",
   template: `
-    <button mat-raised-button
-            *ngFor="let action of actions"
-            [color]="action.color ?? 'primary'"
-            [disabled]="action.disabled || action.loading"
-            (click)="action.handler()">
+    <button mat-raised-button *ngFor="let action of actions" [color]="action.color ?? 'primary'" [disabled]="action.disabled || action.loading" (click)="action.handler()">
       {{ action.label }}
     </button>
-  `
+  `,
 })
 export class FooterActionsComponent {
   @Input() actions: FooterAction[] = [];
@@ -124,7 +120,7 @@ export class WizardActionsService {
 }
 ```
 
-Note the `@Injectable()` is provided at the *wizard* level, not root each wizard instance gets its own isolated action state.
+Note the `@Injectable()` is provided at the _wizard_ level, not root each wizard instance gets its own isolated action state.
 
 ## Step 4: Each Step Registers Its Own Actions
 
@@ -162,12 +158,12 @@ Customer simply never registers a "Next" action. No conditional logic in the foo
 ```typescript
 // wizard.component.ts
 @Component({
-  selector: 'app-wizard',
+  selector: "app-wizard",
   providers: [WizardActionsService], // scoped per wizard instance
   template: `
     <router-outlet></router-outlet>
     <app-footer-actions [actions]="actions$ | async"></app-footer-actions>
-  `
+  `,
 })
 export class WizardComponent {
   actions$ = this.wizardActions.actions$;
@@ -204,4 +200,4 @@ The footer shouldn't know about Vehicles. The Vehicle form shouldn't know about 
 
 ---
 
-*If you found this useful, follow for more Angular architecture deep-dives.*
+_If you found this useful, follow for more Angular architecture deep-dives._

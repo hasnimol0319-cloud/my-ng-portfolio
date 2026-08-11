@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgTemplateOutlet } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { finalize, forkJoin, map } from 'rxjs';
 
 interface Article {
   id: number;
   title: string;
-  excerpt: string;
+  description: string;
   source: string;
   author: string;
   date: string;
@@ -15,20 +16,43 @@ interface Article {
   mdFile?: string;    // path to the markdown file blog-post should load for this slug
 }
 
+interface LinkPreviewData {
+  id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  slug?: string;
+  mdFile?: string;
+}
+const URL_REGEX = /\/([^/]+)-([a-f0-9]+)$/;
+
 @Component({
   selector: 'app-articles',
   standalone: true,
-  imports: [RouterLink, NgTemplateOutlet],
+  imports: [RouterLink],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })
 export class ArticlesComponent implements OnInit {
 
+  private http = inject(HttpClient);
+
   articles: Article[] = [];
-  myArticles: Article[] = [];
+  loading = true;
+
+  myArticleLinks = [
+    'https://medium.com/@hasnimol0319/stop-hardcoding-buttons-in-every-angular-component-a319ab5fac69',
+    'https://medium.com/@hasnimol0319/your-angular-app-isnt-slow-because-of-angular-it-slow-because-of-you-a3c48caa1238',
+    'https://medium.com/@hasnimol0319/what-is-happens-in-the-background-when-you-call-router-navigate-a8715e3bfd47',
+    'https://medium.com/@hasnimol0319/angular-template-reference-variables-4f497726ca25'
+  ];
+
+  myArticleData = signal<LinkPreviewData[]>([]);
 
   ngOnInit(): void {
     this.getArticles();
+    this.getPreview();
   }
 
   getArticles() {
@@ -36,7 +60,7 @@ export class ArticlesComponent implements OnInit {
       {
         id: 1,
         title: 'I Just Read Your Angular Code. You Are Still Writing It Like It Is 2021.',
-        excerpt: 'I reviewed a pull request last week from a developer with four years of experience.',
+        description: 'I reviewed a pull request last week from a developer with four years of experience.',
         source: '',
         author: 'Code Master',
         date: 'Jul 22',
@@ -46,7 +70,7 @@ export class ArticlesComponent implements OnInit {
       {
         id: 2,
         title: 'Write Better Code with TypeScript Patterns',
-        excerpt: 'Frontend codebases have a habit of growing faster than our architectural plans.',
+        description: 'Frontend codebases have a habit of growing faster than our architectural plans.',
         source: '',
         author: 'Onix React',
         date: 'Jul 23',
@@ -56,7 +80,7 @@ export class ArticlesComponent implements OnInit {
       {
         id: 3,
         title: 'Signal Forms vs Reactive Forms: The Migration Path Nobody’s Talking About',
-        excerpt: 'Angular 21 made Signal Forms default. Here’s what actually breaks when you migrate.',
+        description: 'Angular 21 made Signal Forms default. Here’s what actually breaks when you migrate.',
         source: '',
         author: 'Krati Varshney',
         date: 'Feb 07',
@@ -66,7 +90,7 @@ export class ArticlesComponent implements OnInit {
       {
         id: 5,
         title: 'Spread operator in javaScript',
-        excerpt: 'I’d be happy to explain the spread operator in JavaScript and provide a clear example.',
+        description: 'I’d be happy to explain the spread operator in JavaScript and provide a clear example.',
         source: '',
         author: 'PonleuDev',
         date: 'Jul 24',
@@ -74,20 +98,51 @@ export class ArticlesComponent implements OnInit {
         link: 'https://medium.com/@ponleu913/spread-operator-in-javascript-76d4e2083627'
       }
     ];
+  }
 
-    this.myArticles = [
-      {
-        id: 1,
-        title: 'Stop Hardcoding Buttons in Every Angular Component',
-        excerpt: 'Most Angular tutorials teach you to put buttons directly in your component template, wire up (click) handlers, and call it a day. It works...',
-        source: '',
-        author: 'Se Has',
-        date: 'Jul 30',
-        image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*SLeV0Cbzf11dC5qhkX65MQ.png',
-        link: 'https://medium.com/@hasnimol0319/stop-hardcoding-buttons-in-every-angular-component-a319ab5fac69',
-        slug: 'angular-wizard-footer-pattern',
-        mdFile: 'assets/content/angular-wizard-footer-pattern.md'
+  getPreview() {
+    this.loading = true;
+    const apiKey = '1d7400f44315e46ccb1999deab411563';
+
+    const requests = this.myArticleLinks.map(link => {
+      const url = `https://api.linkpreview.net/?key=${apiKey}&q=${encodeURIComponent(link)}`;
+      return this.http.get<LinkPreviewData>(url);
+    });
+
+    if (!requests.length) {
+      return;
+    }
+
+    forkJoin(requests).pipe(map(d => this.modifyData(d)), finalize(() => this.loading = false)).subscribe(
+      (modifiedData) => {
+        this.myArticleData.set(modifiedData);
       }
-    ]
+    );
+  }
+
+  modifyData(data: LinkPreviewData[]): LinkPreviewData[] {
+    const modifiedData: LinkPreviewData[] = data.map((item) => ({
+      id: this.getHasIdFromUrl(item.url) || '',
+      ...item,
+      slug: this.getSlugFromUrl(item.url) || '',
+      mdFile: this.getMdFileFromUrl(item.url) || ''
+    }));
+    return modifiedData;
+  }
+
+  getSlugFromUrl(url: string = ''): string | null {
+    const match = url.match(URL_REGEX);
+    return match ? match[1] : null;
+  }
+
+  getMdFileFromUrl(url: string = ''): string | null {
+    const slug = this.getSlugFromUrl(url);
+    return slug ? `assets/content/${slug}.md` : null;
+  }
+
+  getHasIdFromUrl(url: string = ''): string | null {
+    const match = url.match(URL_REGEX);
+    return match ? match[2] : null;
   }
 }
+
