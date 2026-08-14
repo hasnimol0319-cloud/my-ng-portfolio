@@ -22,10 +22,6 @@
                 <h3>{{ a.title }}</h3>
                 <p>{{ a.description }}</p>
                 <div class="meta">
-                    <a [routerLink]="['/blog', a.slug]" class="read-more seft">
-                        Read
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
                     <a [href]="a.url" target="_blank" class="read-more seft medium">
                         Read on Medium
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>

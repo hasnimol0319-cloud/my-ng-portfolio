@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { BlogPostComponent } from './components/blog-post/blog-post.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -31,7 +30,6 @@ export const routes: Routes = [
         path: 'not-found',
         loadComponent: () => import('../app/components/not-found/not-found.component').then(m => m.NotFoundComponent)
     },
-    { path: 'blog/:slug', component: BlogPostComponent },
     {
         path: '**',
         redirectTo: 'not-found'

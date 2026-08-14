@@ -51,13 +51,10 @@ export class ArticlesComponent implements OnInit {
     this.getMyArticleLinks();
   }
 
-  getMyArticleLinks() {
+  async getMyArticleLinks() {
     this.loading = true;
-    this.articlesService.getMyArticleLinks().then((links) => {
-      this.getPreview(links);
-    }).finally(() => {
-      this.loading = false;
-    });
+    const links = await this.articlesService.getMyArticleLinks();
+    this.getPreview(links);
   }
 
   getArticles() {
@@ -121,6 +118,7 @@ export class ArticlesComponent implements OnInit {
     forkJoin(requests).pipe(map(d => this.modifyData(d)), finalize(() => this.loading = false)).subscribe(
       (modifiedData) => {
         this.myArticleData.set(modifiedData);
+        this.loading = false;
       }
     );
   }
@@ -128,9 +126,7 @@ export class ArticlesComponent implements OnInit {
   modifyData(data: LinkPreviewData[]): LinkPreviewData[] {
     const modifiedData: LinkPreviewData[] = data.map((item) => ({
       id: this.getHasIdFromUrl(item.url) || '',
-      ...item,
-      slug: this.getSlugFromUrl(item.url) || '',
-      mdFile: this.getMdFileFromUrl(item.url) || ''
+      ...item
     }));
     return modifiedData;
   }
