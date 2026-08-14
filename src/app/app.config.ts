@@ -5,6 +5,9 @@ import { routes } from './app.routes';
 import { provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideMarkdown } from 'ngx-markdown';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environment/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +18,6 @@ export const appConfig: ApplicationConfig = {
     })),
     provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: false })),
     provideHttpClient(withFetch()), // required — ngx-markdown fetches files via HttpClient
-    provideMarkdown(),
+    provideMarkdown(), provideFirebaseApp(() => initializeApp(environment.firebase)), provideFirestore(() => getFirestore()),
   ]
 };

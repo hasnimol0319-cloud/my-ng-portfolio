@@ -2,6 +2,8 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { finalize, forkJoin, map } from 'rxjs';
+import { Firestore, doc, getDoc } from '@angular/fire/firestore';
+import { ArticlesService } from '../../services/articles.service';
 
 interface Article {
   id: number;
@@ -37,22 +39,25 @@ const URL_REGEX = /\/([^/]+)-([a-f0-9]+)$/;
 export class ArticlesComponent implements OnInit {
 
   private http = inject(HttpClient);
+  private articlesService = inject(ArticlesService);
 
   articles: Article[] = [];
   loading = true;
-
-  myArticleLinks = [
-    'https://medium.com/@hasnimol0319/stop-hardcoding-buttons-in-every-angular-component-a319ab5fac69',
-    'https://medium.com/@hasnimol0319/your-angular-app-isnt-slow-because-of-angular-it-slow-because-of-you-a3c48caa1238',
-    'https://medium.com/@hasnimol0319/what-is-happens-in-the-background-when-you-call-router-navigate-a8715e3bfd47',
-    'https://medium.com/@hasnimol0319/angular-template-reference-variables-4f497726ca25'
-  ];
 
   myArticleData = signal<LinkPreviewData[]>([]);
 
   ngOnInit(): void {
     this.getArticles();
-    this.getPreview();
+    this.getMyArticleLinks();
+  }
+
+  getMyArticleLinks() {
+    this.loading = true;
+    this.articlesService.getMyArticleLinks().then((links) => {
+      this.getPreview(links);
+    }).finally(() => {
+      this.loading = false;
+    });
   }
 
   getArticles() {
@@ -79,8 +84,8 @@ export class ArticlesComponent implements OnInit {
       },
       {
         id: 3,
-        title: 'Signal Forms vs Reactive Forms: The Migration Path Nobody’s Talking About',
-        description: 'Angular 21 made Signal Forms default. Here’s what actually breaks when you migrate.',
+        title: `Signal Forms vs Reactive Forms: The Migration Path Nobody's Talking About`,
+        description: `Angular 21 made Signal Forms default. Here's what actually breaks when you migrate.`,
         source: '',
         author: 'Krati Varshney',
         date: 'Feb 07',
@@ -90,7 +95,7 @@ export class ArticlesComponent implements OnInit {
       {
         id: 5,
         title: 'Spread operator in javaScript',
-        description: 'I’d be happy to explain the spread operator in JavaScript and provide a clear example.',
+        description: `I'd be happy to explain the spread operator in JavaScript and provide a clear example.`,
         source: '',
         author: 'PonleuDev',
         date: 'Jul 24',
@@ -100,16 +105,16 @@ export class ArticlesComponent implements OnInit {
     ];
   }
 
-  getPreview() {
-    this.loading = true;
+  getPreview(links: string[]) {
     const apiKey = '1d7400f44315e46ccb1999deab411563';
 
-    const requests = this.myArticleLinks.map(link => {
+    const requests = links.map(link => {
       const url = `https://api.linkpreview.net/?key=${apiKey}&q=${encodeURIComponent(link)}`;
       return this.http.get<LinkPreviewData>(url);
     });
 
     if (!requests.length) {
+      this.loading = false;
       return;
     }
 
@@ -145,4 +150,3 @@ export class ArticlesComponent implements OnInit {
     return match ? match[2] : null;
   }
 }
-
