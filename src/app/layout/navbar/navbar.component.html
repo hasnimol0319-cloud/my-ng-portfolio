@@ -5,6 +5,13 @@
             Dev<span>Has</span>
         </a>
         <div class="actions-wrap">
+            <button type="button" class="theme-toggle-btn" (click)="toggleTheme()" [attr.aria-label]="'Switch to ' + (themeService.currentTheme() === 'dark' ? 'light' : 'dark') + ' theme'">
+                @if (themeService.currentTheme() === 'dark') {
+                <i class="fa-solid fa-sun icon-sun"></i>
+                } @else {
+                <i class="fa-solid fa-moon icon-moon"></i>
+                }
+            </button>
             <div class="actions-sm">
                 <a routerLink="/contact" class="btn-cin"><i class="fa-solid fa-message"></i></a>
             </div>
@@ -23,6 +30,13 @@
         </nav>
 
         <div class="actions">
+            <button type="button" class="theme-toggle-btn" (click)="toggleTheme()" [attr.aria-label]="'Switch to ' + (themeService.currentTheme() === 'dark' ? 'light' : 'dark') + ' theme'">
+                @if (themeService.currentTheme() === 'dark') {
+                <i class="fa-solid fa-sun icon-sun"></i>
+                } @else {
+                <i class="fa-solid fa-moon icon-moon"></i>
+                }
+            </button>
             <a routerLink="/contact" class="btn">Message</a>
         </div>
     </div>

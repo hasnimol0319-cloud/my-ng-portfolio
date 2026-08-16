@@ -20,18 +20,19 @@
 .step{
     position:relative;
 
-    background:#12172a;
-    border:1px solid rgba(255,255,255,.06);
+    background:var(--bg-card);
+    border:1px solid var(--border-card);
     border-radius:14px;
     padding: 16px;
+    box-shadow:var(--card-shadow);
 
     transition:.3s;
 }
 
 .step:hover{
     transform:translateY(-4px);
-    border-color:rgba(56,189,248,.35);
-    box-shadow:0 16px 34px rgba(0,0,0,.35);
+    border-color:var(--primary);
+    box-shadow:var(--hover-shadow);
 }
 
 .badge{
@@ -40,8 +41,9 @@
     gap:.75rem;
     margin-bottom:1rem;
 }
+
 h4{
-    
+    color:var(--text-heading);
     margin-bottom:1rem;
 }
 
@@ -55,8 +57,8 @@ h4{
     align-items:center;
     justify-content:center;
 
-    background:rgba(56,189,248,.1);
-    color:var(--primary,#38bdf8);
+    background:var(--glow-color);
+    color:var(--primary);
 }
 
 .icon svg{
@@ -67,7 +69,8 @@ h4{
 .number{
     font-size:1.6rem;
     font-weight:800;
-    color:rgba(255,255,255,.1);
+    color:var(--text-subtle);
+    opacity: 0.6;
 }
 
 .arrow{
@@ -84,7 +87,7 @@ h4{
     justify-content:center;
 
     color:#fff;
-    background: var(--primary,#38bdf8);
+    background: var(--primary);
 }
 
 .arrow svg{

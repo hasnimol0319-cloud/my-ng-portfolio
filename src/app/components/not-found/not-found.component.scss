@@ -18,7 +18,7 @@
     height:600px;
     border-radius:50%;
 
-    background:radial-gradient(circle, rgba(56,189,248,.12), transparent 70%);
+    background:radial-gradient(circle, var(--glow-color), transparent 70%);
     pointer-events:none;
 }
 
@@ -38,7 +38,7 @@
     font-size:6rem;
     font-weight:800;
     line-height:1;
-    color:#fff;
+    color:var(--text-heading);
 
     margin-bottom:1.5rem;
 }
@@ -52,8 +52,8 @@
     align-items:center;
     justify-content:center;
 
-    background:rgba(56,189,248,.1);
-    color:var(--primary,#38bdf8);
+    background:var(--glow-color);
+    color:var(--primary);
 }
 
 .code .icon svg{
@@ -64,14 +64,14 @@
 .content h1{
     font-size:1.6rem;
     font-weight:700;
-    color:#fff;
+    color:var(--text-heading);
     margin-bottom:.75rem;
 }
 
 .content p{
     font-size:.95rem;
     line-height:1.65;
-    color:#8b93a7;
+    color:var(--text-muted);
     margin-bottom:2rem;
 }
 
@@ -83,7 +83,7 @@
     padding:.85rem 1.75rem;
     border-radius:50px;
 
-    background:var(--primary,#38bdf8);
+    background:var(--primary);
     color:#fff;
     font-size:.92rem;
     font-weight:600;

@@ -13,7 +13,7 @@
 .section-head h2{
     font-size:1.8rem;
     font-weight:800;
-    color:#fff;
+    color:var(--text-heading);
 }
 
 
@@ -25,17 +25,17 @@
 }
 
 .contact-card{
-    background:#12172a;
-    border:1px solid rgba(255,255,255,.06);
+    background:var(--bg-card);
+    border:1px solid var(--border-card);
     border-radius:16px;
-    box-shadow:0 16px 34px rgba(0,0,0,.35);
+    box-shadow:var(--card-shadow);
     padding:2rem;
 }
 
 .contact-card h3{
     font-size:1.15rem;
     font-weight:700;
-    color:#fff;
+    color:var(--text-heading);
     margin-bottom:1.5rem;
 }
 
@@ -48,22 +48,22 @@
 .field label{
     font-size:.85rem;
     font-weight:600;
-    color:#cbd5e1;
+    color:var(--text-muted);
     margin-bottom:.5rem;
 }
 
 .field label span{
-    color:var(--primary,#38bdf8);
+    color:var(--primary);
 }
 
 .field input,
 .field textarea{
-    background:#0c1020;
-    border:1px solid rgba(255,255,255,.08);
+    background:var(--bg-input);
+    border:1px solid var(--border-color);
     border-radius:10px;
     padding:.75rem .9rem;
     font-size:.9rem;
-    color:#e2e8f0;
+    color:var(--text-main);
     font-family:inherit;
     resize:vertical;
     transition:.2s;
@@ -71,13 +71,13 @@
 
 .field input::placeholder,
 .field textarea::placeholder{
-    color:#5b6478;
+    color:var(--text-subtle);
 }
 
 .field input:focus,
 .field textarea:focus{
     outline:none;
-    border-color:var(--primary,#38bdf8);
+    border-color:var(--primary);
     box-shadow:0 0 0 3px rgba(56,189,248,.15);
 }
 
@@ -98,7 +98,7 @@
     border:none;
     border-radius:10px;
 
-    background:var(--primary,#38bdf8);
+    background:var(--primary);
     color:#fff;
     font-size:.95rem;
     font-weight:600;
@@ -120,24 +120,24 @@
 /* ---------- Contact info panel ---------- */
 
 .info-card{
-    background:#12172a;
-    border:1px solid rgba(255,255,255,.06);
+    background:var(--bg-card);
+    border:1px solid var(--border-card);
     border-radius:16px;
-    box-shadow:0 16px 34px rgba(0,0,0,.35);
+    box-shadow:var(--card-shadow);
     padding:2rem;
 }
 
 .info-card h3{
     font-size:1.15rem;
     font-weight:700;
-    color:#fff;
+    color:var(--text-heading);
     margin-bottom:.6rem;
 }
 
 .info-card > p{
     font-size:.88rem;
     line-height:1.6;
-    color:#8b93a7;
+    color:var(--text-muted);
     margin-bottom:1.75rem;
 }
 
@@ -166,8 +166,8 @@
     width:38px;
     height:38px;
     border-radius:10px;
-    background:rgba(56,189,248,.1);
-    color:var(--primary,#38bdf8);
+    background:var(--glow-color);
+    color:var(--primary);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -181,7 +181,7 @@
     display:block;
     font-size:.78rem;
     line-height:1.2;
-    color:#64708a;
+    color:var(--text-subtle);
     margin:0;
 }
 
@@ -190,23 +190,23 @@
     font-size:.92rem;
     line-height:1.2;
     font-weight:600;
-    color:#e2e8f0;
+    color:var(--text-main);
 }
 
 .info-list a:hover{
-    color:var(--primary,#38bdf8);
+    color:var(--primary);
 }
 
 .divider{
     height:1px;
-    background:rgba(255,255,255,.08);
+    background:var(--border-color);
     margin-bottom:1.25rem;
 }
 
 .info-card .label{
     display:block;
     font-size:.78rem;
-    color:#64708a;
+    color:var(--text-subtle);
     margin-bottom:.9rem;
 }
 
@@ -219,9 +219,9 @@
     width:38px;
     height:38px;
     border-radius:50%;
-    background:#0c1020;
-    border:1px solid rgba(255,255,255,.08);
-    color:#cbd5e1;
+    background:var(--bg-input);
+    border:1px solid var(--border-color);
+    color:var(--text-muted);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -233,8 +233,8 @@
 }
 
 .social-links a:hover{
-    background:var(--primary,#38bdf8);
-    border-color:var(--primary,#38bdf8);
+    background:var(--primary);
+    border-color:var(--primary);
     color:#fff;
     transform:translateY(-2px);
 }

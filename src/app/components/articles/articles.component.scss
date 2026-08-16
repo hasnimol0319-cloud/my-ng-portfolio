@@ -11,12 +11,12 @@
 .section-head h2 {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-heading);
 }
 
 .section-head p {
     margin-top: .5rem;
-    color: #8b93a7;
+    color: var(--text-muted);
     font-size: 1rem;
 }
 
@@ -39,8 +39,8 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, .1);
-    border-top-color: var(--primary, #38bdf8);
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary);
     animation: spin .8s linear infinite;
 }
 
@@ -54,18 +54,19 @@
     display: flex;
     gap: 1.25rem;
 
-    background: #12172a;
-    border: 1px solid rgba(255, 255, 255, .06);
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
     border-radius: 14px;
     padding: 1rem;
+    box-shadow: var(--card-shadow);
 
-    transition: .3s;
+    transition: .3s ease;
 }
 
 .article-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(56, 189, 248, .35);
-    box-shadow: 0 16px 34px rgba(0, 0, 0, .35);
+    border-color: var(--primary);
+    box-shadow: var(--hover-shadow);
 }
 
 .thumb {
@@ -74,7 +75,7 @@
     height: 130px;
     border-radius: 10px;
     overflow: hidden;
-    background: #0c1020;
+    background: var(--bg-preview);
 }
 
 .thumb img {
@@ -99,7 +100,7 @@
     font-size: .75rem;
     font-weight: 600;
     letter-spacing: .02em;
-    color: var(--primary, #38bdf8);
+    color: var(--primary);
     text-transform: uppercase;
     margin-bottom: .35rem;
 }
@@ -107,7 +108,7 @@
 .info h3 {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-heading);
     line-height: 1.35;
     margin-bottom: .4rem;
 
@@ -119,7 +120,7 @@
 
 .info p {
     font-size: .85rem;
-    color: #8b93a7;
+    color: var(--text-muted);
     line-height: 1.5;
     margin-bottom: .75rem;
 
@@ -137,11 +138,11 @@
     gap: .4rem;
 
     font-size: .78rem;
-    color: #64708a;
+    color: var(--text-subtle);
 }
 
 .dot {
-    color: #3a4358;
+    color: var(--text-subtle);
 }
 
 .read-more {
@@ -149,7 +150,7 @@
     align-items: center;
     gap: .3rem;
     margin-left: auto;
-    color: var(--primary, #38bdf8);
+    color: var(--primary);
     font-weight: 600;
     transition: .25s;
 }
@@ -161,7 +162,6 @@
 .medium {
     margin-left: 0.5rem;
 }
-
 
 .arrow-up-right {
     transform: rotate(-30);
