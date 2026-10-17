@@ -1,143 +1,153 @@
-.experience{
-    width: 100%
+.experience {
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
-.section-head{
-    text-align:center;
-    margin-bottom:4rem;
+.section-head {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-.timeline{
-    position:relative;
+.marker-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--card-shadow);
+    z-index: 2;
 }
 
-.timeline-item{
-    position:relative;
-    display:flex;
-    align-items:flex-start;
-    min-height:120px;
-    margin-bottom:2.5rem;
-}
-.timeline-item::before{
-    content:"";
-    position:absolute;
-    top:20px;              /* starts at the icon's center */
-    left:50%;
-    bottom:-2.5rem;         /* reaches down to the next icon */
-    width:2px;
-    transform:translateX(-50%);
-    background:var(--border-color);
-}
-
-.timeline-item:last-child::before{
-    display:none;           /* no dangling line after the last item */
-}
-
-.icon-wrapper{
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-
-    width:40px;
-    height:40px;
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:var(--bg-card);
-    border:1px solid var(--border-card);
-    color:var(--primary);
-    box-shadow:var(--card-shadow);
-    z-index:2;
-}
-
-.icon-wrapper svg{
-    width:18px;
-    height:18px;
-}
-
-.card{
-    width:calc(50% - 3.5rem);
-    background:var(--bg-card);
+.card {
+    background: var(--bg-card);
     border: 1px solid var(--border-card);
     border-radius: 1rem;
-    padding: 1rem;
-    box-shadow:var(--card-shadow);
-
-    transition:.3s;
+    padding: 1.25rem;
+    box-shadow: var(--card-shadow);
+    transition: .3s;
+    text-align: left;
 }
 
-.card:hover{
-    transform:translateY(-4px);
-    border-color:var(--primary);
-    box-shadow:var(--hover-shadow);
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--hover-shadow);
 }
 
-.timeline-item.right .card{
-    margin-left:auto;
+.card .period {
+    display: block;
+    margin: .25rem 0 .75rem;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--primary);
 }
 
-.timeline-item.left .card{
-    margin-right:auto;
-}
-
-.card .period{
-    display:block;
-    margin:.25rem 0 .75rem;
-    font-size:.85rem;
-    font-weight:600;
-    color:var(--primary);
-}
-
-
-.divider{
-    height:1px;
+.divider {
+    height: 1px;
     background: var(--border-color);
-    margin:1.25rem 0;
+    margin: 1.25rem 0;
 }
 
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:.6rem;
-}
-
-.tag{
-    font-size:.78rem;
-    font-weight:500;
-    color:#fff;
-    background:var(--primary);
-    border-radius:8px;
-    padding:.35rem .7rem;
-}
-
-
-@media(max-width:768px){
-    .experience {
-        margin: 0;
-    }
-    .timeline-line{
-        left:20px;
+/* Customizing PrimeNG Timeline */
+:host ::ng-deep {
+    .p-timeline {
+        max-width: 1100px;
+        margin: 0 auto;
     }
 
-    .timeline-item{
-        padding-left:56px;
+    .p-timeline-event {
+        min-height: 140px;
     }
 
-    .icon-wrapper{
-        left:20px;
-        transform:translateX(-50%);
+    .p-timeline-event-opposite {
+        flex: 1;
+        padding: 0 1.5rem;
     }
 
-    .card{
-        width:100%;
+    .p-timeline-event-content {
+        flex: 1;
+        padding: 0 1.5rem 2.5rem 1.5rem;
     }
 
-    .timeline-item.right .card,
-    .timeline-item.left .card{
-        margin:0;
+    .p-timeline-event-separator {
+        flex: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .p-timeline-event-marker {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    .p-timeline-event-connector {
+        background-color: var(--border-color);
+        width: 2px;
+        flex-grow: 1;
     }
 }
+
+@media (max-width: 768px) {
+    .section-head {
+        margin-bottom: 2.5rem;
+    }
+
+    .marker-icon {
+        width: 38px;
+        height: 38px;
+
+        i {
+            font-size: 1rem !important;
+        }
+    }
+
+    .card {
+        padding: 1.15rem;
+        animation: 1.2s cubic-bezier(0.16, 1, 0.3, 1) both fadeInBottom !important;
+    }
+
+    :host ::ng-deep {
+        /* Override PrimeNG alternating row-reverse so all cards and markers align uniformly */
+        .p-timeline.p-timeline-alternate .p-timeline-event,
+        .p-timeline.p-timeline-alternate .p-timeline-event:nth-child(even),
+        .p-timeline .p-timeline-event,
+        .p-timeline-event {
+            flex-direction: row !important;
+        }
+
+        .p-timeline-event-opposite {
+            display: none !important;
+            flex: 0 !important;
+            width: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .p-timeline-event-separator {
+            flex: 0 0 auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        .p-timeline.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-content,
+        .p-timeline.p-timeline-alternate .p-timeline-event .p-timeline-event-content,
+        .p-timeline-event-content {
+            flex: 1 1 auto !important;
+            padding: 0 0 2rem 1rem !important;
+            text-align: left !important;
+            min-width: 0 !important;
+        }
+
+        .p-timeline-event-connector {
+            background-color: var(--border-color);
+            width: 2px !important;
+            flex-grow: 1 !important;
+        }
+    }
+}
+
+

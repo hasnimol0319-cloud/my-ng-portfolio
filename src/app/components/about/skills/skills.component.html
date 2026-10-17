@@ -53,10 +53,11 @@
         </div>
       </div>
 
-      <div class="skill-name">
+      <div class="skill-name flex items-center justify-between">
         <h3 [style.color]="skill.color">{{ skill.name }}</h3>
-      <span class="level-tag">{{ skill.level }}</span>
+        <p-tag [value]="skill.level" [rounded]="true" severity="info"></p-tag>
       </div>
+
     </div>
   </div>
 

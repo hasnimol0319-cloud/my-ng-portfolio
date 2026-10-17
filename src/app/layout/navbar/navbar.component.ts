@@ -3,14 +3,16 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 import menus from '@public/db/menu.json';
 import { Menu } from '../../models/menu';
 import { ThemeService } from '../../services/theme.service';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, ButtonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
+
 export class NavbarComponent implements OnInit {
   themeService = inject(ThemeService);
   menu: Menu[] = [];

@@ -16,6 +16,7 @@
                     <input
                         id="name"
                         type="text"
+                        pInputText
                         formControlName="name"
                         placeholder="Your Name"
                         [class.invalid]="submitted && f['name'].invalid">
@@ -29,6 +30,7 @@
                     <input
                         id="email"
                         type="email"
+                        pInputText
                         formControlName="email"
                         placeholder="your.email@example.com"
                         [class.invalid]="submitted && f['email'].invalid">
@@ -42,6 +44,7 @@
                     <input
                         id="subject"
                         type="text"
+                        pInputText
                         formControlName="subject"
                         placeholder="What is your regarding?"
                         [class.invalid]="submitted && f['subject'].invalid">
@@ -55,6 +58,7 @@
                     <textarea
                         id="message"
                         rows="5"
+                        pTextarea
                         formControlName="message"
                         placeholder="Your message here..."
                         [class.invalid]="submitted && f['message'].invalid"></textarea>
@@ -63,13 +67,8 @@
                     }
                 </div>
 
-                <button type="submit" class="submit-btn" [disabled]="sending">
-                    @if (!sending) {
-                        <span>Send Message</span>
-                    } @else {
-                        <span>Sending...</span>
-                    }
-                </button>
+                <p-button type="submit" [label]="sending ? 'Sending...' : 'Send Message'" icon="pi pi-send" [loading]="sending" [disabled]="sending" styleClass="w-full"></p-button>
+
 
             </form>
         </div>

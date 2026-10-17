@@ -9,6 +9,8 @@ import {
   PLATFORM_ID
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { TagModule } from 'primeng/tag';
+import { ButtonModule } from 'primeng/button';
 
 type Category = 'frontend' | 'backend' | 'tools';
 
@@ -25,10 +27,11 @@ interface Skill {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TagModule, ButtonModule],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
+
 export class SkillsComponent implements AfterViewInit, OnDestroy {
 
   readonly CIRC = 2 * Math.PI * 50; // circle r=50 -> ~314.159, matches stroke-dasharray in template

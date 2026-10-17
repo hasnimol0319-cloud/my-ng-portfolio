@@ -5,14 +5,18 @@ import { EmailSendingService } from '../../services/email-sending.service';
 import { contact, social } from '@public/db/contact.json';
 import { Contact } from '../../models/contact';
 import { Social } from '../../models/social';
+import { InputTextModule } from 'primeng/inputtext';
+import { TextareaModule } from 'primeng/textarea';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, InputTextModule, TextareaModule, ButtonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
+
 export class ContactComponent implements OnInit{
 
   form!: FormGroup;

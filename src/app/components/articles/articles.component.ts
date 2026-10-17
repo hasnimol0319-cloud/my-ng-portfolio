@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { finalize, forkJoin, map } from 'rxjs';
 import { Firestore, doc, getDoc } from '@angular/fire/firestore';
 import { ArticlesService } from '../../services/articles.service';
+import { ButtonModule } from 'primeng/button';
 
 interface Article {
   id: number;
@@ -32,10 +33,12 @@ const URL_REGEX = /\/([^/]+)-([a-f0-9]+)$/;
 @Component({
   selector: 'app-articles',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ButtonModule],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })
+
+
 export class ArticlesComponent implements OnInit {
 
   private http = inject(HttpClient);

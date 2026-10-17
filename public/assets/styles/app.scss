@@ -111,11 +111,13 @@ html[data-theme="light"] {
   }
   
 
+html,
 body {
   font-family: var(--font-body);
   background-color: var(--bg-main);
   color: var(--text-main);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 a{
@@ -206,3 +208,82 @@ h6 {
     transform: translateY(0);
   }
 }
+
+/* Global PrimeIcons Sizing & Alignment Fix */
+i.pi, .pi {
+  font-size: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.social-links a i.pi {
+  font-size: 1.4rem !important;
+}
+
+.info-icon i.pi {
+  font-size: 1.25rem !important;
+}
+
+.card-icon i.pi {
+  font-size: 1.5rem !important;
+}
+
+.timeline-icon i.pi {
+  font-size: 1.25rem !important;
+}
+
+.btn i.pi, .btn-cin i.pi, p-button i.pi, .home-btn i.pi, .read-more i.pi {
+  font-size: 1.15rem !important;
+}
+
+/* Primary Tag Pill Styling */
+.p-tag {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 0.35rem 0.85rem !important;
+  font-size: 0.8rem !important;
+  border-radius: 9999px !important;
+}
+
+/* Primary Styling for PrimeNG Buttons */
+.p-button,
+p-button button,
+.p-button-primary {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  transition: all 0.25s ease !important;
+
+  &:hover:not(:disabled) {
+    background: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+  }
+}
+
+/* Outlined PrimeNG buttons */
+.p-button-outlined {
+  background: transparent !important;
+  border: 1px solid var(--primary) !important;
+  color: var(--primary) !important;
+
+  &:hover:not(:disabled) {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+  }
+}
+
+
+

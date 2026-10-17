@@ -4,49 +4,30 @@
         <p class="description">A timeline of my professional journey and career highlights.</p>
     </div>
 
-    <div class="timeline">
-        <!-- <div class="timeline-line"></div> -->
-
-        @for (item of experiences; track item.id; let i = $index; let odd = $odd) {
-            <div class="timeline-item" [class.left]="i % 2 !== 0" [class.right]="i % 2 === 0">
-
-                <div class="icon-wrapper" [style.background]="item.color">
-                    @switch (item.icon) {
-                        @case ('code') {
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 3 12 9 6"></polyline>
-                                <polyline points="15 6 21 12 15 18"></polyline>
-                            </svg>
-                        }
-                        @case ('target') {
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="9"></circle>
-                                <circle cx="12" cy="12" r="4.5"></circle>
-                                <circle cx="12" cy="12" r="1"></circle>
-                            </svg>
-                        }
-                        @case ('spark') {
-                            <svg viewBox="0 0 24 24" fill="white" stroke="none">
-                                <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"></path>
-                            </svg>
-                        }
-                    }
+    <div class="timeline-wrap">
+        <p-timeline [value]="experiences" align="alternate">
+            <ng-template pTemplate="marker" let-item>
+                <div class="marker-icon" [style.background]="item.color">
+                    <i [class]="getIconClass(item.icon)" style="color: #ffffff; font-size: 1.15rem;"></i>
                 </div>
-
-                <div class="card" [class]="odd ? 'animation-fade-in-left':'animation-fade-in-right'">
+            </ng-template>
+            <ng-template pTemplate="content" let-item let-i="index">
+                <div class="card" [class]="i % 2 === 0 ? 'animation-fade-in-right' : 'animation-fade-in-left'">
                     <h3>{{ item.role }}</h3>
                     <span class="period">{{ item.period }}</span>
                     <p class="description">{{ item.description }}</p>
 
                     <div class="divider"></div>
 
-                    <div class="tags">
+                    <div class="tags flex flex-wrap gap-2">
                         @for (tag of item.tags; track tag) {
-                            <span class="tag">{{ tag }}</span>
+                            <p-tag [value]="tag" [rounded]="true"></p-tag>
                         }
                     </div>
+
                 </div>
-            </div>
-        }
+            </ng-template>
+        </p-timeline>
     </div>
 </section>
+

@@ -8,6 +8,9 @@ import { provideMarkdown } from 'ngx-markdown';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environment/environment';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,5 +22,14 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: false })),
     provideHttpClient(withFetch()), // required — ngx-markdown fetches files via HttpClient
     provideMarkdown(), provideFirebaseApp(() => initializeApp(environment.firebase)), provideFirestore(() => getFirestore()),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: '[data-theme="dark"]'
+        }
+      }
+    })
   ]
 };
+

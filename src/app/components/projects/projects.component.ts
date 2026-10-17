@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TagModule } from 'primeng/tag';
 
 interface Project {
   id: number;
@@ -12,10 +13,11 @@ interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [TagModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
+
 export class ProjectsComponent implements OnInit {
 
   projects: Project[] = [];

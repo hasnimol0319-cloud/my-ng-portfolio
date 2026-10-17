@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import solutions from '@public/db/solutions.json';
 import { FeatureImageComponent } from '../../shared/components/feature-image/feature-image.component';
 import { WorkflowComponent } from '../workflow/workflow.component';
+import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
 
 interface Solution {
   id: number,
@@ -12,10 +14,11 @@ interface Solution {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FeatureImageComponent, WorkflowComponent],
+  imports: [FeatureImageComponent, WorkflowComponent, ButtonModule, TooltipModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
+
 export class HomeComponent {
   solutionList: Solution[] = [];
 
