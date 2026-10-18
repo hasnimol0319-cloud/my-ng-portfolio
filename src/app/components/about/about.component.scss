@@ -1,40 +1,133 @@
-.intro{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
 }
-.greeting{
-    flex: 1;
-    display: flex;
+
+/* About Hero Card */
+.about-hero {
+  width: 100%;
+}
+
+.hero-card {
+  padding: 2.5rem !important;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.bio-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.bio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+
+  .status-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 8px var(--primary);
+  }
+}
+
+.bio-title {
+  font-size: clamp(2rem, 3.5vw + 1rem, 2.75rem);
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.bio-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 720px;
+
+  strong {
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+}
+
+.stats-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+
+  .stat-num {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-subtle);
+  }
+}
+
+/* Deep Dive Bento Grid */
+.deep-dive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.dive-card {
+  padding: 2rem !important;
+}
+
+.skills-wrapper {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-inner {
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: .5rem;
-}
-.image-left{
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+  }
+
+  .bio-col {
     align-items: center;
-    min-width: 0;
-}
-.section2{
-    display: flex;
-    gap: 2rem;
-}
-.ex-section, .approach-section{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+  }
 
+  .stats-row {
+    justify-content: center;
+  }
 
-
-@media (max-width: 768px){
-  .intro, .section2{
-    flex-direction: column;
+  .deep-dive-grid {
+    grid-template-columns: 1fr;
   }
 }

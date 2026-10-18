@@ -1,108 +1,127 @@
-<section class="contact">
-    <div class="section-head">
-        <h2>Send Me a Message</h2>
-        <p class="description">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
-    </div>
+<section class="contact-section">
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-tag">Direct Reach</span>
+    <h2>Let's Build Something Exceptional</h2>
+    <p>Whether you're looking to architect a new enterprise system, optimize frontend performance, or discuss opportunities, I'm ready to connect.</p>
+  </div>
 
-    <div class="contact-wrapper">
+  <div class="contact-bento-wrapper">
 
-        <div class="contact-card">
-            <h3>Get in Touch</h3>
+    <!-- Form Column -->
+    <div class="bento-card form-card">
+      <div class="card-intro">
+        <h3 class="form-title">Send a Message</h3>
+        <p class="form-sub">Fill out the details below and I will respond to your inquiry promptly.</p>
+      </div>
 
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="contact-form">
 
-                <div class="field">
-                    <label for="name">Name <span>*</span></label>
-                    <input
-                        id="name"
-                        type="text"
-                        pInputText
-                        formControlName="name"
-                        placeholder="Your Name"
-                        [class.invalid]="submitted && f['name'].invalid">
-                    @if (submitted && f['name'].invalid) {
-                        <span class="error">Please enter your name.</span>
-                    }
-                </div>
-
-                <div class="field">
-                    <label for="email">Email <span>*</span></label>
-                    <input
-                        id="email"
-                        type="email"
-                        pInputText
-                        formControlName="email"
-                        placeholder="your.email@example.com"
-                        [class.invalid]="submitted && f['email'].invalid">
-                    @if (submitted && f['email'].invalid) {
-                        <span class="error">Please enter a valid email address.</span>
-                    }
-                </div>
-
-                <div class="field">
-                    <label for="subject">Subject <span>*</span></label>
-                    <input
-                        id="subject"
-                        type="text"
-                        pInputText
-                        formControlName="subject"
-                        placeholder="What is your regarding?"
-                        [class.invalid]="submitted && f['subject'].invalid">
-                    @if (submitted && f['subject'].invalid) {
-                        <span class="error">Please enter a subject.</span>
-                    }
-                </div>
-
-                <div class="field">
-                    <label for="message">Message <span>*</span></label>
-                    <textarea
-                        id="message"
-                        rows="5"
-                        pTextarea
-                        formControlName="message"
-                        placeholder="Your message here..."
-                        [class.invalid]="submitted && f['message'].invalid"></textarea>
-                    @if (submitted && f['message'].invalid) {
-                        <span class="error">Message should be at least 10 characters.</span>
-                    }
-                </div>
-
-                <p-button type="submit" [label]="sending ? 'Sending...' : 'Send Message'" icon="pi pi-send" [loading]="sending" [disabled]="sending" styleClass="w-full"></p-button>
-
-
-            </form>
+        <div class="form-field">
+          <label for="name">Your Name <span class="required">*</span></label>
+          <input
+            id="name"
+            type="text"
+            pInputText
+            formControlName="name"
+            placeholder="John Doe"
+            [class.invalid]="submitted && f['name'].invalid">
+          @if (submitted && f['name'].invalid) {
+            <span class="field-error"><i class="pi pi-exclamation-circle text-xs"></i> Please enter your name.</span>
+          }
         </div>
 
-        <div class="info-card">
-            <h3>Contact Information</h3>
-            <p>Feel free to reach out through any of these channels — I usually reply within a day.</p>
+        <div class="form-field">
+          <label for="email">Work Email <span class="required">*</span></label>
+          <input
+            id="email"
+            type="email"
+            pInputText
+            formControlName="email"
+            placeholder="john.doe@company.com"
+            [class.invalid]="submitted && f['email'].invalid">
+          @if (submitted && f['email'].invalid) {
+            <span class="field-error"><i class="pi pi-exclamation-circle text-xs"></i> Please enter a valid email address.</span>
+          }
+        </div>
 
-            <ul class="info-list">
-                @for (c of contactList; track c.id) {
-                    <li>
-                        <span class="info-icon">
-                            <i [class]="c.icon"></i>
-                        </span>
-                        <div>
-                            <span class="label">{{c.name}}</span>
-                            <a [href]="c.url" target="_blank">{{c.value}}</a>
-                        </div>
-                    </li>
-                }
-            </ul>
+        <div class="form-field">
+          <label for="subject">Subject <span class="required">*</span></label>
+          <input
+            id="subject"
+            type="text"
+            pInputText
+            formControlName="subject"
+            placeholder="Frontend Architecture / Contract Opportunity"
+            [class.invalid]="submitted && f['subject'].invalid">
+          @if (submitted && f['subject'].invalid) {
+            <span class="field-error"><i class="pi pi-exclamation-circle text-xs"></i> Please enter a subject.</span>
+          }
+        </div>
 
-            <div class="divider"></div>
+        <div class="form-field">
+          <label for="message">Project Details / Message <span class="required">*</span></label>
+          <textarea
+            id="message"
+            rows="5"
+            pTextarea
+            formControlName="message"
+            placeholder="Tell me about your project scope, timeline, and goals..."
+            [class.invalid]="submitted && f['message'].invalid"></textarea>
+          @if (submitted && f['message'].invalid) {
+            <span class="field-error"><i class="pi pi-exclamation-circle text-xs"></i> Message should be at least 10 characters.</span>
+          }
+        </div>
 
-            <span class="label">Follow Me</span>
+        <p-button
+          type="submit"
+          [label]="sending ? 'Transmitting Message...' : 'Send Message'"
+          icon="pi pi-send"
+          [loading]="sending"
+          [disabled]="sending"
+          styleClass="w-full btn-ember-pbutton"></p-button>
 
-            <div class="social-links">
-                @for (s of socialList; track s.id) {
-                    <a [href]="s.url" target="_blank" rel="noopener noreferrer">
-                        <i [class]="s.icon"></i>
-                    </a>
-                }
+      </form>
+    </div>
+
+    <!-- Contact Info Column -->
+    <div class="bento-card info-card">
+      <div class="info-header">
+        <div class="availability-badge">
+          <span class="status-pulse"></span>
+          <span>Usually replies within 24 hours</span>
+        </div>
+        <h3 class="info-title">Contact Channels</h3>
+        <p class="info-sub">Direct contact information and preferred communication channels.</p>
+      </div>
+
+      <ul class="channels-list">
+        @for (c of contactList; track c.id) {
+          <li class="channel-item">
+            <div class="channel-icon">
+              <i [class]="c.icon"></i>
             </div>
-        </div>
+            <div class="channel-content">
+              <span class="channel-name">{{ c.name }}</span>
+              <a [href]="c.url" target="_blank" class="channel-link">{{ c.value }}</a>
+            </div>
+          </li>
+        }
+      </ul>
 
+      <div class="card-divider"></div>
+
+      <div class="social-section">
+        <span class="social-label">Professional Profiles</span>
+        <div class="social-row">
+          @for (s of socialList; track s.id) {
+            <a [href]="s.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="s.name" class="social-btn">
+              <i [class]="s.icon"></i>
+            </a>
+          }
+        </div>
+      </div>
     </div>
+
+  </div>
 </section>

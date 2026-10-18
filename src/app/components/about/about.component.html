@@ -1,28 +1,63 @@
-<div class="container-wrap">
-  <div class="intro">
-    <div class="image-left animation-fade-in-left">
-      <app-profile-photo imageSrc="images/has-small.png" alt="Se Has"></app-profile-photo>
+<div class="about-container">
+
+  <!-- =========================================================================
+       ABOUT HERO
+       ========================================================================= -->
+  <section class="about-hero">
+    <div class="bento-card hero-card">
+      <div class="hero-inner">
+        <app-profile-photo imageSrc="images/has-small.png" alt="Se Has"></app-profile-photo>
+
+        <div class="bio-col">
+          <div class="bio-badge">
+            <span class="status-pulse"></span>
+            <span>Frontend Developer &amp; System Architect</span>
+          </div>
+
+          <h1 class="bio-title">
+            Hi, I'm <span class="ember-gradient-text">Se Has</span>
+          </h1>
+
+          <p class="bio-desc">
+            I am a Frontend Software Engineer with <strong>5+ years of enterprise experience</strong> in Angular, TypeScript, and modern frontend architecture. I specialize in building high-performance, fault-tolerant enterprise applications, optimizing complex systems, and designing interfaces that feel intuitive and responsive.
+          </p>
+
+          <div class="stats-row">
+            <div class="stat-pill">
+              <span class="stat-num">5+</span>
+              <span class="stat-label">Years Exp</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-num">15+</span>
+              <span class="stat-label">Systems Built</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Type-Safe Clean Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="greeting animation-fade-in-right">
-      <h2>Hi, I'm Se Has</h2>
-      <p class="primary-color">Frontend Developer & System Architect</p>
-      <p class="description">
-        I'm a Web Fronted Developer with 5+ years of enterprise experience in
-        Angular, TypeScript, and modern frontend architecture. Specialized in
-        high-performance applications, building scalable, optimizing complex
-        systems, and delivering exceptional user experiences.
-      </p>
-    </div>
-  </div>
-  <div class="section2">
-    <div class="ex-section animation-fade-in-left">
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: JOURNEY & PRINCIPLES BENTO GRID
+       ========================================================================= -->
+  <section class="deep-dive-grid">
+    <div class="bento-card dive-card">
       <app-experiences></app-experiences>
     </div>
-    <div class="approach-section animation-fade-in-right">
+    <div class="bento-card dive-card">
       <app-promise-tabs></app-promise-tabs>
     </div>
-  </div>
-  <div class="skills">
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: TECHNICAL SKILLS & EXPERTISE
+       ========================================================================= -->
+  <section class="skills-wrapper">
     <app-skills></app-skills>
-  </div>
+  </section>
+
 </div>

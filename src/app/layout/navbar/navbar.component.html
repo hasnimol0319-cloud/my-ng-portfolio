@@ -1,44 +1,71 @@
 <header class="navbar">
-    <div class="container">
+  <div class="nav-container">
 
-        <a routerLink="/" class="logo">
-            Dev<span>Has</span>
-        </a>
-        <div class="actions-wrap">
-            <button type="button" class="theme-toggle-btn" (click)="toggleTheme()" [attr.aria-label]="'Switch to ' + (themeService.currentTheme() === 'dark' ? 'light' : 'dark') + ' theme'">
-                @if (themeService.currentTheme() === 'dark') {
-                <i class="pi pi-sun icon-sun"></i>
-                } @else {
-                <i class="pi pi-moon icon-moon"></i>
-                }
-            </button>
-            <div class="actions-sm">
-                <a routerLink="/contact" class="btn-cin"><i class="pi pi-send"></i></a>
-            </div>
-            <button type="button" class="hamburger" [class.is-open]="isMenuOpen" (click)="toggleMenu()"
-                aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+    <!-- Brand Logo -->
+    <a routerLink="/" class="logo-wrap" (click)="closeMenu()">
+      <div class="logo-icon">
+        H
+      </div>
+      <span class="logo-text">Dev<span class="logo-accent">Has</span></span>
+    </a>
 
-        <nav class="nav-links" [class.is-open]="isMenuOpen">
-            @for (m of menu; track m.id) {
-            <a [routerLink]="m.url" routerLinkActive="active" (click)="closeMenu()">{{m.name}}</a>
-            }
-        </nav>
+    <!-- Desktop Navigation Links -->
+    <nav class="nav-links">
+      @for (m of menu; track m.id) {
+        <a [routerLink]="m.url" routerLinkActive="active" (click)="closeMenu()">{{ m.name }}</a>
+      }
+    </nav>
 
-        <div class="actions">
-            <button type="button" class="theme-toggle-btn" (click)="toggleTheme()" [attr.aria-label]="'Switch to ' + (themeService.currentTheme() === 'dark' ? 'light' : 'dark') + ' theme'">
-                @if (themeService.currentTheme() === 'dark') {
-                <i class="pi pi-sun icon-sun"></i>
-                } @else {
-                <i class="pi pi-moon icon-moon"></i>
-                }
-            </button>
-            <a routerLink="/contact" class="btn">Message</a>
-        </div>
+    <!-- Right Actions -->
+    <div class="actions">
+      <!-- Theme Switcher Button -->
+      <button
+        type="button"
+        class="theme-toggle-btn"
+        (click)="toggleTheme()"
+        [attr.aria-label]="'Switch to ' + (themeService.currentTheme() === 'dark' ? 'light' : 'dark') + ' theme'">
+        @if (themeService.currentTheme() === 'dark') {
+          <i class="pi pi-sun icon-sun"></i>
+        } @else {
+          <i class="pi pi-moon icon-moon"></i>
+        }
+      </button>
 
+      <!-- Launch UI CTA Button -->
+      <a routerLink="/contact" class="btn-ember nav-cta">
+        <span>Get in Touch</span>
+        <i class="pi pi-arrow-right text-xs"></i>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        type="button"
+        class="hamburger"
+        [class.is-open]="isMenuOpen"
+        (click)="toggleMenu()"
+        aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" [class.is-open]="isMenuOpen">
+    <div class="mobile-menu-inner">
+      <div class="mobile-links">
+        @for (m of menu; track m.id) {
+          <a [routerLink]="m.url" routerLinkActive="active" (click)="closeMenu()">{{ m.name }}</a>
+        }
+      </div>
+      <div class="mobile-cta-wrap">
+        <a routerLink="/contact" class="btn-ember w-full justify-center" (click)="closeMenu()">
+          <span>Get in Touch</span>
+          <i class="pi pi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>

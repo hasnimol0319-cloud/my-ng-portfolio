@@ -1,36 +1,150 @@
-<div class="container-wrap">
-    <div class="intro">
-        <div class="image-left animation-fade-in-left">
-            <app-feature-image></app-feature-image>
+<div class="home-container">
+
+  <!-- =========================================================================
+       HERO SECTION (Launch UI Style)
+       ========================================================================= -->
+  <section class="hero-section">
+    <!-- Ambient Radial Glow Backdrop -->
+    <div class="glow-backdrop"></div>
+
+    <div class="hero-content">
+
+      <!-- 1. Launch UI Announcement Pill Badge -->
+      <a routerLink="/projects" class="launch-badge">
+        <span class="badge-indicator"></span>
+        <span class="badge-text">Frontend &amp; Architecture Showcase</span>
+        <span class="badge-action">
+          Explore Work <i class="pi pi-arrow-right text-xs"></i>
+        </span>
+      </a>
+
+      <!-- 2. Massive High-Contrast Gradient Typography -->
+      <h1 class="hero-headline">
+        Engineering scalable web applications <span class="ember-gradient-text">that stand out</span>
+      </h1>
+
+      <!-- 3. Subtitle with balanced text -->
+      <p class="hero-subtitle">
+        Frontend Developer &amp; Enterprise Architect with 5+ years of experience specializing in Angular, TypeScript, high-throughput systems, and exceptional user experiences.
+      </p>
+
+      <!-- 4. Dual Call-to-Action Buttons -->
+      <div class="hero-actions">
+        <a routerLink="/projects" class="btn-ember">
+          <span>View Enterprise Work</span>
+          <i class="pi pi-arrow-right"></i>
+        </a>
+        <a href="CV/SE-HAS_CV.pdf" download="SE-HAS_CV.pdf" target="_blank" class="btn-glass">
+          <i class="pi pi-download"></i>
+          <span>Download CV</span>
+        </a>
+      </div>
+
+      <!-- 5. Social Proof / Trust Stats Banner -->
+      <div class="social-proof-bar">
+        <div class="stars-row">
+          <i class="pi pi-star-fill star-icon"></i>
+          <i class="pi pi-star-fill star-icon"></i>
+          <i class="pi pi-star-fill star-icon"></i>
+          <i class="pi pi-star-fill star-icon"></i>
+          <i class="pi pi-star-fill star-icon"></i>
         </div>
-        <div class="greeting animation-fade-in-right">
-            <p class="primary-color">Driving Next-Gen Business Efficiency Through Smart Automation </p>
-            <h2>Building Scalable Web Experiences</h2>
-            <p class="description">I build scalable Angular applications focused on performance, maintainability, and exceptional user experiences. Specialized in enterprise systems, modern architecture, and frontend optimization.</p>
-            <div class="actions-sm">
-                <a href="https://hasnimol0319-cloud.github.io/sehas_portfolio/" target="_blank" class="btn">Digital CV</a>
-                <a href="CV/SE-HAS_CV.pdf" download="SE-HAS_CV.pdf" target="_blank" class="btn-cin">Download CV</a>
-            </div>
+        <div class="stats-text">
+          <span class="highlight">5+ Years Experience</span>
+          <span class="dot">•</span>
+          <span>15+ Enterprise Systems</span>
+          <span class="dot">•</span>
+          <span>99.9% Production Reliability</span>
         </div>
-    </div>
-    <div class="service animation-fade-in-bottom">
-        <h3>What I Do?</h3>
-        <p class="description">
-            Transform complex business requirements into scalable, maintainable, and high-performing web applications using modern frontend technologies.
-        </p>
-        <div class="service-list">
-            @for (s of solutionList; track s.id; let i = $index) {
-                <div class="card">
-                    <div class="card-top">
-                        <div class="card-number">{{i < 9 ? "0" + (i+1): i+1}}</div>
-                        <div class="card-icon"><i class="pi pi-code"></i></div>
-                    </div>
-                    <h4 class="card-title">{{s.title}}</h4>
-                    <p class="description">{{s.description}}</p>
+      </div>
+
+      <!-- 6. Launch UI Perspective Mockup Frame / Showcase -->
+      <div class="mockup-container">
+        <div class="mockup-frame">
+          <div class="mockup-header">
+            <span class="dot bg-red-500/80"></span>
+            <span class="dot bg-amber-500/80"></span>
+            <span class="dot bg-emerald-500/80"></span>
+            <span class="mockup-title">devhas://architecture-preview.app</span>
+          </div>
+          <div class="mockup-content">
+            <div class="showcase-grid">
+              <div class="showcase-visual">
+                <app-feature-image></app-feature-image>
+              </div>
+              <div class="showcase-metrics">
+                <div class="metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Frontend Framework</span>
+                    <i class="pi pi-shield text-primary"></i>
+                  </div>
+                  <div class="metric-value">Angular 18+</div>
+                  <p class="metric-sub">Signals, SSR &amp; Standalone Architecture</p>
                 </div>
-            }
+                <div class="metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Quality &amp; Testing</span>
+                    <i class="pi pi-check-circle text-emerald-400"></i>
+                  </div>
+                  <div class="metric-value">Enterprise Grade</div>
+                  <p class="metric-sub">Type-safe TypeScript &amp; RxJS reactive state</p>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-header">
+                    <span class="metric-label">Design Standard</span>
+                    <i class="pi pi-palette text-amber-400"></i>
+                  </div>
+                  <div class="metric-value">Launch UI Aesthetic</div>
+                  <p class="metric-sub">High-contrast obsidian glassmorphism &amp; ember glow</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
     </div>
-    <app-workflow></app-workflow>
+  </section>
+
+  <!-- =========================================================================
+       BENTO GRID: "WHAT I DO" (Solutions & Core Capabilities)
+       ========================================================================= -->
+  <section class="solutions-section">
+    <div class="section-header">
+      <span class="section-tag">Capabilities</span>
+      <h2>What I Bring to Your Team</h2>
+      <p>Transforming complex business requirements into scalable, maintainable, and high-performing web applications.</p>
+    </div>
+
+    <div class="bento-grid">
+      @for (s of solutionList; track s.id; let i = $index) {
+        <div class="bento-card solution-card" [class.featured-card]="i === 0">
+          <div class="card-top">
+            <div class="card-badge">0{{ i + 1 }}</div>
+            <div class="card-icon-wrap">
+              @switch (i % 4) {
+                @case (0) { <i class="pi pi-code"></i> }
+                @case (1) { <i class="pi pi-server"></i> }
+                @case (2) { <i class="pi pi-bolt"></i> }
+                @default { <i class="pi pi-shield"></i> }
+              }
+            </div>
+          </div>
+          <h3 class="card-title">{{ s.title }}</h3>
+          <p class="card-desc">{{ s.description }}</p>
+          <div class="card-bottom">
+            <span class="card-tech">
+              <i class="pi pi-check text-primary"></i> Production Ready
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       WORKFLOW SECTION ("HOW I WORK")
+       ========================================================================= -->
+  <app-workflow></app-workflow>
+
 </div>

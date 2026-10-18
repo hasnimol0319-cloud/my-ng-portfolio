@@ -1,59 +1,63 @@
 <footer class="footer">
+  <div class="footer-container">
 
-    <div class="footer-container">
-
-        <!-- About -->
-        <div class="footer-section">
-            <h2 class="footer-logo">
-                Dev<span>Has</span>
-            </h2>
-
-            <p class="description">
-                Frontend Developer passionate about creating modern,
-                responsive, and user-friendly web applications with
-                Angular, TypeScript, and modern web technologies.
-            </p>
+    <!-- Brand Column -->
+    <div class="footer-brand">
+      <a routerLink="/" class="footer-logo">
+        <div class="logo-icon-sm">
+          H
         </div>
-        <div class="image">
-            <img class="img" src="images/has.png" alt="" srcset="" />
+        <span>Dev<span class="text-primary">Has</span></span>
+      </a>
 
-        </div>
+      <p class="brand-desc">
+        Senior Frontend Engineer & Enterprise Architect passionate about high-performance web applications, scalable design systems, and modern Angular architecture.
+      </p>
 
-        <!-- Contact -->
-        <div class="footer-section">
-            <h3>Contact</h3>
-            @for (c of contactList; track c.id) {
-                <a [href]="c.url">
-                    <i [class]="c.icon"></i>
-                    {{c.value}}
-                </a>
-
-            }
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-
-            @for (m of menu; track m.id) {
-                <a [routerLink]="m.url" routerLinkActive="active">{{m.name}}</a>
-            }
-        </div>
-
-    </div>
-
-    <!-- Social -->
-    <div class="social-links">
+      <div class="social-row">
         @for (s of socialList; track s.id) {
-            <a [href]="s.url" target="_blank" rel="noopener noreferrer">
-                <i [class]="s.icon"></i>
-            </a>
+          <a [href]="s.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="s.name" class="social-btn">
+            <i [class]="s.icon"></i>
+          </a>
         }
-
+      </div>
     </div>
 
-    <div class="footer-bottom">
-        © 2026 DevHas. All Rights Reserved.
+    <!-- Quick Navigation Links -->
+    <div class="footer-col">
+      <h4 class="col-title">Navigation</h4>
+      <div class="link-list">
+        @for (m of menu; track m.id) {
+          <a [routerLink]="m.url" class="footer-link">{{ m.name }}</a>
+        }
+      </div>
     </div>
 
+    <!-- Contact & Direct Reach -->
+    <div class="footer-col">
+      <h4 class="col-title">Contact</h4>
+      <div class="link-list">
+        @for (c of contactList; track c.id) {
+          <a [href]="c.url" class="contact-link" target="_blank">
+            <i [class]="c.icon" class="text-primary"></i>
+            <span>{{ c.value }}</span>
+          </a>
+        }
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="bottom-container">
+      <p class="copyright">
+        © 2026 DevHas. Crafted with Angular & Launch UI Design Principles.
+      </p>
+      <div class="bottom-badge">
+        <span class="status-pulse"></span>
+        <span>Open To Work</span>
+      </div>
+    </div>
+  </div>
 </footer>

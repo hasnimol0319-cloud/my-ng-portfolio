@@ -1,153 +1,156 @@
-.experience {
-    width: 100%;
-    margin-bottom: 2rem;
+.experience-section {
+  width: 100%;
 }
 
-.section-head {
-    text-align: center;
-    margin-bottom: 4rem;
+.timeline-wrap {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
 .marker-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--card-shadow);
-    z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 5;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 }
 
-.card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    border-radius: 1rem;
-    padding: 1.25rem;
-    box-shadow: var(--card-shadow);
-    transition: .3s;
-    text-align: left;
+.timeline-card {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem !important;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary);
-    box-shadow: var(--hover-shadow);
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.card .period {
-    display: block;
-    margin: .25rem 0 .75rem;
-    font-size: .85rem;
-    font-weight: 600;
-    color: var(--primary);
+.period-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
 }
 
-.divider {
-    height: 1px;
-    background: var(--border-color);
-    margin: 1.25rem 0;
+.role-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.role-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.card-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.5rem 0;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.timeline-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--text-heading);
+    border-color: rgba(249, 115, 22, 0.3);
+  }
 }
 
 /* Customizing PrimeNG Timeline */
 :host ::ng-deep {
-    .p-timeline {
-        max-width: 1100px;
-        margin: 0 auto;
-    }
+  .p-timeline-event {
+    min-height: 130px;
+  }
 
-    .p-timeline-event {
-        min-height: 140px;
-    }
+  .p-timeline-event-opposite {
+    flex: 1;
+    padding: 0 2rem;
+  }
 
-    .p-timeline-event-opposite {
-        flex: 1;
-        padding: 0 1.5rem;
-    }
+  .p-timeline-event-content {
+    flex: 1;
+    padding: 0 2rem 3rem 2rem;
+  }
 
-    .p-timeline-event-content {
-        flex: 1;
-        padding: 0 1.5rem 2.5rem 1.5rem;
-    }
+  .p-timeline-event-separator {
+    flex: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .p-timeline-event-separator {
-        flex: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .p-timeline-event-marker {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
 
-    .p-timeline-event-marker {
-        border: none !important;
-        background: transparent !important;
-        padding: 0 !important;
-    }
-
-    .p-timeline-event-connector {
-        background-color: var(--border-color);
-        width: 2px;
-        flex-grow: 1;
-    }
+  .p-timeline-event-connector {
+    background-color: var(--border-color) !important;
+    width: 2px !important;
+    flex-grow: 1;
+  }
 }
 
 @media (max-width: 768px) {
-    .section-head {
-        margin-bottom: 2.5rem;
+  :host ::ng-deep {
+    .p-timeline.p-timeline-alternate .p-timeline-event,
+    .p-timeline.p-timeline-alternate .p-timeline-event:nth-child(even),
+    .p-timeline .p-timeline-event,
+    .p-timeline-event {
+      flex-direction: row !important;
     }
 
-    .marker-icon {
-        width: 38px;
-        height: 38px;
-
-        i {
-            font-size: 1rem !important;
-        }
+    .p-timeline-event-opposite {
+      display: none !important;
+      flex: 0 !important;
+      width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
-    .card {
-        padding: 1.15rem;
-        animation: 1.2s cubic-bezier(0.16, 1, 0.3, 1) both fadeInBottom !important;
+    .p-timeline-event-content {
+      flex: 1 1 auto !important;
+      padding: 0 0 2rem 1rem !important;
     }
-
-    :host ::ng-deep {
-        /* Override PrimeNG alternating row-reverse so all cards and markers align uniformly */
-        .p-timeline.p-timeline-alternate .p-timeline-event,
-        .p-timeline.p-timeline-alternate .p-timeline-event:nth-child(even),
-        .p-timeline .p-timeline-event,
-        .p-timeline-event {
-            flex-direction: row !important;
-        }
-
-        .p-timeline-event-opposite {
-            display: none !important;
-            flex: 0 !important;
-            width: 0 !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        .p-timeline-event-separator {
-            flex: 0 0 auto !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-        }
-
-        .p-timeline.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-content,
-        .p-timeline.p-timeline-alternate .p-timeline-event .p-timeline-event-content,
-        .p-timeline-event-content {
-            flex: 1 1 auto !important;
-            padding: 0 0 2rem 1rem !important;
-            text-align: left !important;
-            min-width: 0 !important;
-        }
-
-        .p-timeline-event-connector {
-            background-color: var(--border-color);
-            width: 2px !important;
-            flex-grow: 1 !important;
-        }
-    }
+  }
 }
-
-

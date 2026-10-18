@@ -1,69 +1,80 @@
-<section class="articles animation-fade-in-top">
-    <div class="section-head">
-        <h2>My Articles</h2>
-        <p>My Articles Explore my latest deep dives and insights on modern frontend development, originally published on
-            Medium.</p>
-    </div>
+<!-- Section 1: My Articles -->
+<section class="articles-section">
+  <div class="section-header">
+    <span class="section-tag">Publications</span>
+    <h2>Original Articles &amp; Deep Dives</h2>
+    <p>In-depth engineering guides, architecture patterns, and technical write-ups published on Medium.</p>
+  </div>
 
-    @if (loading) {
-    <div class="state loading">
-        <span class="spinner"></span>
-        <p>Loading article...</p>
+  @if (loading) {
+    <div class="state-loading">
+      <span class="spinner"></span>
+      <p>Loading articles...</p>
     </div>
+  }
+
+  <div class="articles-grid">
+    @for (a of myArticleData(); track a.id) {
+      <div class="bento-card article-card">
+        <div class="thumb-wrap">
+          <img [src]="a.image" [alt]="a.title" loading="lazy">
+          <span class="platform-badge">Medium</span>
+        </div>
+
+        <div class="card-content">
+          <h3 class="article-title">{{ a.title }}</h3>
+          <p class="article-desc">{{ a.description }}</p>
+
+          <div class="article-footer">
+            <a [href]="a.url" target="_blank" rel="noopener noreferrer" class="read-btn">
+              <span>Read on Medium</span>
+              <i class="pi pi-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     }
-    <div class="articles-grid">
-        @for (a of myArticleData(); track a.id) {
-
-        <a class="article-card">
-            <div class="thumb">
-                <img [src]="a.image" [alt]="a.title" loading="lazy">
-            </div>
-            <div class="info">
-                <h3>{{ a.title }}</h3>
-                <p>{{ a.description }}</p>
-                <div class="meta">
-                    <a [href]="a.url" target="_blank" class="read-more seft medium">
-                        Read on Medium
-                        <i class="pi pi-external-link"></i>
-                    </a>
-                </div>
-            </div>
-        </a>
-        }
-    </div>
+  </div>
 </section>
-<section class="articles animation-fade-in-bottom">
-    <div class="section-head">
-        <h2>Articles I'm Reading</h2>
-        <p>Worth-sharing reads on frontend development, curated from Medium</p>
-    </div>
 
-    <div class="articles-grid">
-        @for (a of articles; track a.id) {
+<!-- Section 2: Recommended Articles -->
+<section class="articles-section mt-16">
+  <div class="section-header">
+    <span class="section-tag">Curated</span>
+    <h2>Recommended Industry Reads</h2>
+    <p>Hand-picked, high-value insights on modern web development and software architecture.</p>
+  </div>
 
-        <a class="article-card" [href]="a.link" target="_blank" rel="noopener noreferrer">
-            <div class="thumb">
-                <img [src]="a.image" [alt]="a.title" loading="lazy">
+  <div class="articles-grid">
+    @for (a of articles; track a.id) {
+      <div class="bento-card article-card">
+        <div class="thumb-wrap">
+          <img [src]="a.image" [alt]="a.title" loading="lazy">
+          <span class="platform-badge">{{ a.source || 'Medium' }}</span>
+        </div>
+
+        <div class="card-content">
+          <h3 class="article-title">{{ a.title }}</h3>
+          <p class="article-desc">{{ a.description }}</p>
+
+          <div class="article-footer">
+            <div class="meta-info">
+              @if (a.author) {
+                <span>{{ a.author }}</span>
+              }
+              @if (a.date) {
+                <span class="dot">•</span>
+                <span>{{ a.date }}</span>
+              }
             </div>
-            <div class="info">
-                <span class="source">{{ a.source }}</span>
-                <h3>{{ a.title }}</h3>
-                <p>{{ a.description }}</p>
-                <div class="meta">
-                    @if (a.author) {
-                    <span>{{ a.author }}</span>
-                    }
-                    @if (a.date) {
-                    <span class="dot">•</span>
-                    <span>{{ a.date }}</span>
-                    }
-                    <a [href]="a.link" target="_blank" class="read-more seft medium">
-                        Read on Medium
-                        <i class="pi pi-external-link"></i>
-                    </a>
-                </div>
-            </div>
-        </a>
-        }
-    </div>
+
+            <a [href]="a.link" target="_blank" rel="noopener noreferrer" class="read-btn">
+              <span>Read Article</span>
+              <i class="pi pi-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 </section>

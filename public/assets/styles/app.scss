@@ -2,114 +2,134 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* You can add global styles to this file, and also import other style files */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ==========================================================================
+   Launch UI Design System - Ember / Obsidian Theme
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root,
 html[data-theme="dark"] {
-  --primary: #38bdf8;
-  --primary-hover: #0ea5e9;
+  /* Brand: Launch UI Ember */
+  --brand: #f97316;
+  --brand-foreground: #ffedd5;
+  --brand-hover: #ea580c;
+  --primary: #f97316;
+  --primary-hover: #ea580c;
+  --primary-light: #fb923c;
+  --primary-glow: rgba(249, 115, 22, 0.28);
 
-  /* Shared font stacks (loaded via Google Fonts in index.html) */
+  /* Fonts */
   --font-heading: 'Sora', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Shared type scale */
-  --fs-h1: clamp(2rem, 4vw + 1rem, 3rem);      /* page hero title */
-  --fs-h2: clamp(1.5rem, 2vw + 1rem, 2rem);     /* section title */
-  --fs-h3: clamp(1.15rem, 1vw + 1rem, 1.5rem);  /* card / item title */
+  /* Typography Scale */
+  --fs-hero: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+  --fs-h1: clamp(2rem, 3.5vw + 1rem, 3rem);
+  --fs-h2: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  --fs-h3: clamp(1.15rem, 1vw + 1rem, 1.5rem);
   --fs-h4: 1.1rem;
   --fs-h5: 1rem;
-  --fs-h6: 0.85rem;                             /* eyebrow / label */
+  --fs-h6: 0.85rem;
 
-  /* Dark Theme Variables */
-  --bg-main: #0f172a;
-  --bg-card: #12172a;
-  --bg-card-hover: #1e293b;
-  --bg-preview: #0c1020;
+  /* Dark Theme Surfaces: Launch UI Obsidian Palette */
+  --bg-main: #09090b;
+  --bg-card: rgba(18, 18, 22, 0.85);
+  --bg-card-hover: rgba(26, 26, 32, 0.95);
+  --bg-preview: #0d0d12;
   --bg-subtle: rgba(255, 255, 255, 0.04);
-  --bg-nav: rgba(15, 23, 42, 0.7);
-  --bg-nav-glass: rgba(255, 255, 255, 0.06);
-  --bg-nav-mobile: #0f172a;
-  --bg-footer: #081120;
-  --bg-input: #0c1020;
+  --bg-nav: rgba(9, 9, 11, 0.82);
+  --bg-nav-glass: rgba(24, 24, 27, 0.65);
+  --bg-nav-mobile: #09090b;
+  --bg-footer: #060608;
+  --bg-input: #121216;
 
-  --text-main: #e2e8f0;
-  --text-heading: #ffffff;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --description: #9a9a9a;
+  /* Text Colors */
+  --text-main: #e4e4e7;
+  --text-heading: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-subtle: #71717a;
+  --description: #a1a1aa;
 
+  /* Borders & Grid lines */
   --border-color: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(255, 255, 255, 0.06);
-  --border-primary: var(--primary);
+  --border-card: rgba(255, 255, 255, 0.09);
+  --border-highlight: rgba(249, 115, 22, 0.4);
+  --border-grid: rgba(255, 255, 255, 0.05);
 
-  --card-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
-  --hover-shadow: 0 0 20px rgba(0, 119, 182, 0.4);
-  --glow-color: rgba(56, 189, 248, 0.12);
+  /* Shadows & Glow */
+  --card-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65);
+  --hover-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.2);
+  --glow-color: rgba(249, 115, 22, 0.12);
 
-  --social-bg: #132238;
-  --social-color: #ffffff;
+  /* Social */
+  --social-bg: rgba(255, 255, 255, 0.05);
+  --social-color: #f4f4f5;
 
   color-scheme: dark;
 }
 
 html[data-theme="light"] {
-  --primary: #0284c7;
-  --primary-hover: #0369a1;
+  --brand: #ea580c;
+  --brand-foreground: #fff7ed;
+  --brand-hover: #c2410c;
+  --primary: #ea580c;
+  --primary-hover: #c2410c;
+  --primary-light: #f97316;
+  --primary-glow: rgba(234, 88, 12, 0.2);
 
-  /* Light Theme Variables */
-  --bg-main: #f8fafc;
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --fs-hero: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+  --fs-h1: clamp(2rem, 3.5vw + 1rem, 3rem);
+  --fs-h2: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  --fs-h3: clamp(1.15rem, 1vw + 1rem, 1.5rem);
+  --fs-h4: 1.1rem;
+  --fs-h5: 1rem;
+  --fs-h6: 0.85rem;
+
+  --bg-main: #fafafa;
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --bg-preview: #f1f5f9;
-  --bg-subtle: rgba(0, 0, 0, 0.04);
+  --bg-card-hover: #f4f4f5;
+  --bg-preview: #f4f4f5;
+  --bg-subtle: rgba(0, 0, 0, 0.03);
   --bg-nav: rgba(255, 255, 255, 0.85);
-  --bg-nav-glass: rgba(0, 0, 0, 0.05);
+  --bg-nav-glass: rgba(255, 255, 255, 0.75);
   --bg-nav-mobile: #ffffff;
-  --bg-footer: #e2e8f0;
+  --bg-footer: #f4f4f5;
   --bg-input: #ffffff;
 
-  --text-main: #334155;
-  --text-heading: #0f172a;
-  --text-muted: #475569;
-  --text-subtle: #64748b;
-  --description: #475569;
+  --text-main: #27272a;
+  --text-heading: #09090b;
+  --text-muted: #52525b;
+  --text-subtle: #71717a;
+  --description: #52525b;
 
-  --border-color: rgba(0, 0, 0, 0.1);
-  --border-card: #e2e8f0;
-  --border-primary: #0284c7;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-card: #e4e4e7;
+  --border-highlight: rgba(234, 88, 12, 0.35);
+  --border-grid: rgba(0, 0, 0, 0.05);
 
-  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-  --hover-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.25);
-  --glow-color: rgba(2, 132, 199, 0.15);
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --hover-shadow: 0 14px 28px -5px rgba(234, 88, 12, 0.18);
+  --glow-color: rgba(234, 88, 12, 0.08);
 
-  --social-bg: #cbd5e1;
-  --social-color: #0f172a;
+  --social-bg: #e4e4e7;
+  --social-color: #18181b;
 
   color-scheme: light;
 }
-.primary-color{
-  color: var(--primary);
-}
-.container-wrap{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-  .description {
-    color: var(--description);
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0;
-  }
-  
+
+/* ==========================================================================
+   Global Base Styling
+   ========================================================================== */
 
 html,
 body {
@@ -118,24 +138,27 @@ body {
   color: var(--text-main);
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
-a{
-    text-decoration:none;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 p {
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.65;
   color: var(--text-muted);
 }
 
-h1, h2, h3, h4, h5, h6, a {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
   color: var(--text-heading);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 h1 { font-size: var(--fs-h1); }
@@ -152,64 +175,300 @@ h6 {
   letter-spacing: 0.06em;
 }
 
-.animation-fade-in-left{
-  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInLeft;
-}
-.animation-fade-in-right{
-  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInRight;
-}
-.animation-fade-in-bottom{
-  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInBottom;
-}
-.animation-fade-in-top{
-  animation: 3s cubic-bezier(.16, 1, .3, 1) both fadeInTop;
+/* ==========================================================================
+   Launch UI Architectural Lines & Radial Glow System
+   ========================================================================== */
+
+.line-y {
+  border-left: 1px dashed var(--border-grid);
+  border-right: 1px dashed var(--border-grid);
 }
 
-@keyframes fadeInLeft {
-  0%{
-    opacity: 0;
-    transform: translate(-40px);
+.line-b {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.max-w-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.container-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Gradient Text Utilities */
+.gradient-heading {
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+html[data-theme="light"] .gradient-heading {
+  background: linear-gradient(180deg, #09090b 0%, #52525b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ember-gradient-text {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Launch UI Glow Backdrop */
+.glow-backdrop {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 350px;
+  background: radial-gradient(circle, var(--primary-glow) 0%, rgba(249, 115, 22, 0.03) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Launch UI Component Styles: Badges, Buttons, Cards
+   ========================================================================== */
+
+/* Launch UI Announcement Pill Badge */
+.launch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+
+  .badge-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  100%{
-    opacity: 1;
-    transform: translate(0);
+
+  .badge-text {
+    color: var(--text-muted);
+  }
+
+  .badge-action {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+
+  &:hover {
+    border-color: var(--primary);
+    background: rgba(249, 115, 22, 0.08);
+    transform: translateY(-1px);
+    color: var(--text-heading);
+
+    .badge-action i {
+      transform: translateX(2px);
+    }
   }
 }
 
-@keyframes fadeInRight {
-  0%{
-    opacity: 0;
-    transform: translate(40px);
+/* Primary Button (Launch UI Ember Gradient) */
+.btn-ember,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #fb923c 0%, #f97316 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: none;
+  border-right: none;
+  box-shadow: 0 4px 18px rgba(249, 115, 22, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(180deg, #f97316 0%, #ea580c 100%);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    color: #ffffff !important;
   }
-  100%{
-    opacity: 1;
-    transform: translate(0);
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(249, 115, 22, 0.3);
   }
 }
 
-@keyframes fadeInBottom {
-  0%{
-    opacity: 0;
-    transform: translateY(40px);
+/* Secondary Button (Launch UI Glass Button) */
+.btn-glass,
+.btn-cin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-heading) !important;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    color: var(--text-heading) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   }
-  100%{
-    opacity: 1;
+
+  html[data-theme="light"] &:hover {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.18);
+  }
+
+  &:active {
     transform: translateY(0);
   }
 }
 
-@keyframes fadeInTop {
-  0%{
-    opacity: 0;
-    transform: translateY(-40px);
+/* Launch UI Bento Card Surface */
+.bento-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 1.75rem;
+  backdrop-filter: blur(16px);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
-  100%{
-    opacity: 1;
-    transform: translateY(0);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-highlight);
+    box-shadow: var(--hover-shadow);
+    background: var(--bg-card-hover);
   }
 }
 
-/* Global PrimeIcons Sizing & Alignment Fix */
+/* Launch UI Mockup Frame */
+.mockup-frame {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: var(--card-shadow), 0 0 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+
+  .mockup-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.15);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-color);
+    }
+  }
+
+  .mockup-content {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+/* Section Header Typography */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem auto;
+
+  .section-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-heading);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+}
+
+/* ==========================================================================
+   PrimeNG & PrimeIcons Theming to Launch UI Ember
+   ========================================================================== */
+
 i.pi, .pi {
   font-size: inherit;
   display: inline-flex;
@@ -218,72 +477,71 @@ i.pi, .pi {
   vertical-align: middle;
 }
 
-.social-links a i.pi {
-  font-size: 1.4rem !important;
-}
-
-.info-icon i.pi {
-  font-size: 1.25rem !important;
-}
-
-.card-icon i.pi {
-  font-size: 1.5rem !important;
-}
-
-.timeline-icon i.pi {
-  font-size: 1.25rem !important;
-}
-
-.btn i.pi, .btn-cin i.pi, p-button i.pi, .home-btn i.pi, .read-more i.pi {
-  font-size: 1.15rem !important;
-}
-
-/* Primary Tag Pill Styling */
 .p-tag {
-  background: var(--primary) !important;
-  color: #ffffff !important;
+  background: rgba(249, 115, 22, 0.12) !important;
+  color: var(--primary) !important;
+  border: 1px solid rgba(249, 115, 22, 0.25) !important;
   font-weight: 600 !important;
-  padding: 0.35rem 0.85rem !important;
-  font-size: 0.8rem !important;
+  padding: 0.28rem 0.75rem !important;
+  font-size: 0.78rem !important;
   border-radius: 9999px !important;
+  letter-spacing: 0.02em;
 }
 
-/* Primary Styling for PrimeNG Buttons */
 .p-button,
 p-button button,
 .p-button-primary {
-  background: var(--primary) !important;
-  border-color: var(--primary) !important;
+  background: linear-gradient(180deg, #fb923c 0%, #f97316 100%) !important;
+  border: 1px solid rgba(249, 115, 22, 0.5) !important;
+  border-top-color: rgba(255, 255, 255, 0.35) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
   border-radius: 10px !important;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3) !important;
   transition: all 0.25s ease !important;
 
   &:hover:not(:disabled) {
-    background: var(--primary-hover) !important;
-    border-color: var(--primary-hover) !important;
-    color: #ffffff !important;
+    background: linear-gradient(180deg, #f97316 0%, #ea580c 100%) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 8px 22px rgba(249, 115, 22, 0.42) !important;
   }
 
   &:disabled {
-    opacity: 0.65 !important;
+    opacity: 0.6 !important;
     cursor: not-allowed !important;
   }
 }
 
-/* Outlined PrimeNG buttons */
-.p-button-outlined {
-  background: transparent !important;
-  border: 1px solid var(--primary) !important;
-  color: var(--primary) !important;
+/* PrimeNG Input fields */
+.p-inputtext,
+input.p-inputtext,
+textarea.p-inputtext {
+  background: var(--bg-input) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 10px !important;
+  padding: 0.8rem 1rem !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
 
-  &:hover:not(:disabled) {
-    background: var(--primary) !important;
-    color: #ffffff !important;
+  &:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18) !important;
+    outline: none !important;
   }
 }
 
+/* Keyframes */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.9); }
+}
 
+@keyframes appearZoom {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
+.animate-appear-zoom {
+  animation: appearZoom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

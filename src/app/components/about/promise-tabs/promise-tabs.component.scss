@@ -1,4 +1,4 @@
-:host{
+:host {
   --ink: var(--primary);
   --ink-soft: var(--text-muted);
   --pill-bg: var(--bg-card);
@@ -6,54 +6,65 @@
   --accent: var(--primary);
 
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
-.jurney{
+
+.jurney {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-heading);
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
 }
-.j-right{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+
+.wrap {
+  width: 100%;
 }
-.wrap{ max-width: 1100px; margin: 0 auto; padding: 0 20px;margin-top: 1rem; }
 
 /* Pill tab switcher */
-.tabs{
+.tabs {
   position: relative;
   display: inline-flex;
-  background: var(--pill-bg);
-  border: 1px solid var(--border-card);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
   border-radius: 999px;
-  padding: 6px;
+  padding: 4px;
   gap: 4px;
-  margin-bottom: 1rem;
-  box-shadow: var(--card-shadow);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(12px);
 }
 
-.tab-indicator{
+.tab-indicator {
   position: absolute;
-  top: 6px;
+  top: 4px;
   left: 0;
-  height: calc(100% - 12px);
-  background: var(--pill-active);
+  height: calc(100% - 8px);
+  background: linear-gradient(180deg, #fb923c 0%, #f97316 100%);
   border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(249, 115, 22, 0.35);
   transition: transform .38s cubic-bezier(.65,0,.35,1), width .38s cubic-bezier(.65,0,.35,1);
   z-index: 0;
 }
 
-.tab-btn{
+.tab-btn {
   position: relative;
   z-index: 1;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.92rem;
-  padding: 8px 16px;
+  font-size: 0.88rem;
+  padding: 7px 16px;
   border-radius: 999px;
   border: none;
   background: transparent;
@@ -61,64 +72,65 @@
   cursor: pointer;
   transition: color .25s ease, transform .15s ease;
   white-space: nowrap;
-}
 
-.tab-btn.active{ color: #fff; }
-.tab-btn:hover:not(.active){ color: var(--text-heading); }
-.tab-btn:active{ transform: scale(0.94); }
-.tab-btn:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+  &.active {
+    color: #ffffff;
+  }
 
-/* Panels */
-.panel{
-  display: none;
-  gap: 1rem;
-}
-.panel.active{ display: grid; }
-
-.panel.enter .panel-img{ animation: imgIn .5s cubic-bezier(.2,.8,.2,1) both; }
-.panel.enter .panel-text .eyebrow{ animation: riseIn .45s ease both; animation-delay: .05s; }
-.panel.enter .panel-text h2{ animation: riseIn .45s ease both; animation-delay: .12s; }
-.panel.enter .panel-text p{ animation: riseIn .45s ease both; animation-delay: .19s; }
-
-@keyframes imgIn{
-  from{ opacity: 0; transform: scale(1.06); }
-  to{ opacity: 1; transform: scale(1); }
-}
-@keyframes riseIn{
-  from{ opacity: 0; transform: translateY(14px); }
-  to{ opacity: 1; transform: translateY(0); }
-}
-
-.panel-img{
-  border-radius: 14px;
-  width: 100%;
-}
-
-.panel-text .eyebrow{
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-h4{
-  margin-bottom: 8px;
-  color: var(--text-heading);
-}
-
-
-@media (max-width: 760px){
-  .panel.active{ grid-template-columns: 1fr; }
-  .wrap{
-    padding: 0;
+  &:hover:not(.active) {
+    color: var(--text-heading);
   }
 }
 
-@media (prefers-reduced-motion: reduce){
-  .panel.enter .panel-img,
-  .panel.enter .panel-text .eyebrow,
-  .panel.enter .panel-text h2,
-  .panel.enter .panel-text p{ animation: none; }
-  .tab-indicator{ transition: none; }
+/* Panels */
+.panel {
+  display: none;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.panel.active {
+  display: flex;
+}
+
+.panel.enter .panel-img {
+  animation: imgIn .5s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.panel.enter .panel-text h4,
+.panel.enter .panel-text p {
+  animation: riseIn .45s ease both;
+}
+
+@keyframes imgIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-img {
+  border-radius: 14px;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.panel-text {
+  h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
 }

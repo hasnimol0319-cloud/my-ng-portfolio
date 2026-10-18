@@ -1,26 +1,35 @@
-<section class="not-found">
+<section class="not-found-section">
+  <!-- Radial Ember Glow -->
+  <div class="glow-backdrop"></div>
 
-    <div class="glow"></div>
-
-    <div class="content">
-
-        <div class="code">
-            <span>4</span>
-            <span class="icon">
-                <i class="pi pi-question-circle" style="font-size: 3rem;"></i>
-            </span>
-            <span>4</span>
-        </div>
-
-        <h1>Page Not Found</h1>
-        <p>The page you're looking for doesn't exist, may have been moved, or the URL was mistyped.</p>
-
-        <a routerLink="/" class="home-btn">
-            <i class="pi pi-home" style="margin-right: 0.5rem;"></i>
-            Back to Home
-        </a>
-
-
+  <div class="bento-card not-found-card">
+    <div class="code-badge">
+      <span class="status-dot"></span>
+      <span>HTTP 404 Status</span>
     </div>
 
+    <div class="code-visual">
+      <span class="digit">4</span>
+      <div class="icon-ring">
+        <i class="pi pi-compass"></i>
+      </div>
+      <span class="digit">4</span>
+    </div>
+
+    <h1 class="not-found-title">Lost in Space</h1>
+    <p class="not-found-desc">
+      The page you are looking for has been relocated, renamed, or is unavailable in this deployment.
+    </p>
+
+    <div class="actions-row">
+      <a routerLink="/" class="btn-ember">
+        <i class="pi pi-arrow-left"></i>
+        <span>Return to Home</span>
+      </a>
+      <a routerLink="/projects" class="btn-glass">
+        <span>View Projects</span>
+        <i class="pi pi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
 </section>

@@ -1,33 +1,40 @@
-<section class="experience">
-    <div class="section-head animation-fade-in-top">
-        <h2>My Experience</h2>
-        <p class="description">A timeline of my professional journey and career highlights.</p>
-    </div>
+<section class="experience-section">
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-tag">Trajectory</span>
+    <h2>Career &amp; Professional Experience</h2>
+    <p>A track record of engineering scalable frontend architectures, leading enterprise initiatives, and delivering production systems.</p>
+  </div>
 
-    <div class="timeline-wrap">
-        <p-timeline [value]="experiences" align="alternate">
-            <ng-template pTemplate="marker" let-item>
-                <div class="marker-icon" [style.background]="item.color">
-                    <i [class]="getIconClass(item.icon)" style="color: #ffffff; font-size: 1.15rem;"></i>
-                </div>
-            </ng-template>
-            <ng-template pTemplate="content" let-item let-i="index">
-                <div class="card" [class]="i % 2 === 0 ? 'animation-fade-in-right' : 'animation-fade-in-left'">
-                    <h3>{{ item.role }}</h3>
-                    <span class="period">{{ item.period }}</span>
-                    <p class="description">{{ item.description }}</p>
+  <div class="timeline-wrap">
+    <p-timeline [value]="experiences" align="alternate">
+      <ng-template pTemplate="marker" let-item>
+        <div class="marker-icon" [style.box-shadow]="'0 0 20px ' + item.color + '40'" [style.border-color]="item.color">
+          <i [class]="getIconClass(item.icon)" [style.color]="item.color"></i>
+        </div>
+      </ng-template>
 
-                    <div class="divider"></div>
+      <ng-template pTemplate="content" let-item let-i="index">
+        <div class="bento-card timeline-card">
+          <div class="card-header">
+            <span class="period-pill">
+              <i class="pi pi-calendar text-xs"></i>
+              {{ item.period }}
+            </span>
+          </div>
 
-                    <div class="tags flex flex-wrap gap-2">
-                        @for (tag of item.tags; track tag) {
-                            <p-tag [value]="tag" [rounded]="true"></p-tag>
-                        }
-                    </div>
+          <h3 class="role-title">{{ item.role }}</h3>
+          <p class="role-desc">{{ item.description }}</p>
 
-                </div>
-            </ng-template>
-        </p-timeline>
-    </div>
+          <div class="card-divider"></div>
+
+          <div class="tags-container">
+            @for (tag of item.tags; track tag) {
+              <span class="timeline-tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+      </ng-template>
+    </p-timeline>
+  </div>
 </section>
-

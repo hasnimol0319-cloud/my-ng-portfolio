@@ -1,19 +1,29 @@
 .night-vision-effect {
-  $line-width: 5px;
-  max-width: 350px;
+  max-width: 380px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(249, 115, 22, 0.2);
+  border: 1px solid rgba(249, 115, 22, 0.3);
 
   background-image: 
-  url("/images/gif/se_has_intro.gif"), 
-  radial-gradient(circle at center, var(--primary) 0%, #085f88 60%, rgb(0 0 0 / 13%) 100%), 
-  repeating-linear-gradient(rgba(87, 86, 86, 0) 0px, rgba(0, 0, 0, 0.116) 2px, rgba(0, 0, 0, 0) 4px);
+    url("/images/gif/se_has_intro.gif"), 
+    radial-gradient(circle at center, rgba(249, 115, 22, 0.5) 0%, #9a3412 60%, rgba(0, 0, 0, 0.6) 100%), 
+    repeating-linear-gradient(rgba(249, 115, 22, 0) 0px, rgba(0, 0, 0, 0.2) 2px, rgba(0, 0, 0, 0) 4px);
 
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 45px rgba(249, 115, 22, 0.35);
+  }
 }
 
 [class$=-effect] img {
-	vertical-align: top !important;
-	margin: 0 !important;
-	opacity: 0 !important;
+  vertical-align: top !important;
+  margin: 0 !important;
+  opacity: 0 !important;
 }

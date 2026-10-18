@@ -1,45 +1,45 @@
-<section class="workflow">
-    <div class="section-head">
-        <h3>How I work?</h3>
-        <p class="description">Make the engineering pipeline clear to show you the value of clean execution, not just coding.</p>
-    </div>
+<section class="workflow-section">
+  <div class="section-header">
+    <span class="section-tag">Methodology</span>
+    <h2>How I Build &amp; Deliver</h2>
+    <p>A rigorous engineering pipeline ensuring clean execution, architectural durability, and dependable delivery.</p>
+  </div>
 
-    <div class="steps">
-        @for (step of steps; track step.id; let i = $index) {
+  <div class="steps-grid">
+    @for (step of steps; track step.id; let i = $index) {
+      <div class="bento-card step-card">
+        <div class="step-header">
+          <div class="step-icon-wrap">
+            @switch (step.icon) {
+              @case ('discovery') {
+                <i class="pi pi-search"></i>
+              }
+              @case ('architecture') {
+                <i class="pi pi-sitemap"></i>
+              }
+              @case ('optimization') {
+                <i class="pi pi-bolt"></i>
+              }
+              @case ('deployment') {
+                <i class="pi pi-cloud-upload"></i>
+              }
+              @default {
+                <i class="pi pi-cog"></i>
+              }
+            }
+          </div>
+          <span class="step-num">{{ step.number }}</span>
+        </div>
 
-            <div class="step">
+        <h3 class="step-title">{{ step.title }}</h3>
+        <p class="step-desc">{{ step.description }}</p>
 
-                <div class="badge">
-                    <div class="icon" style="display: flex; align-items: center; justify-content: center;">
-                        @switch (step.icon) {
-                            @case ('discovery') {
-                                <i class="pi pi-search" style="font-size: 1.25rem;"></i>
-                            }
-                            @case ('architecture') {
-                                <i class="pi pi-sitemap" style="font-size: 1.25rem;"></i>
-                            }
-                            @case ('optimization') {
-                                <i class="pi pi-bolt" style="font-size: 1.25rem;"></i>
-                            }
-                            @case ('deployment') {
-                                <i class="pi pi-cloud-upload" style="font-size: 1.25rem;"></i>
-                            }
-                        }
-                    </div>
-                    <span class="number">{{ step.number }}</span>
-                </div>
-
-                <h4>{{ step.title }}</h4>
-                <p class="description">{{ step.description }}</p>
-
-                @if (i < steps.length - 1) {
-                    <span class="arrow">
-                        <i class="pi pi-arrow-right" style="font-size: 1rem;"></i>
-                    </span>
-                }
-
-
-            </div>
+        @if (i < steps.length - 1) {
+          <div class="step-connector">
+            <i class="pi pi-arrow-right"></i>
+          </div>
         }
-    </div>
+      </div>
+    }
+  </div>
 </section>

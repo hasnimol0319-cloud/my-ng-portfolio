@@ -1,39 +1,62 @@
-<section class="projects">
-    <div class="section-head animation-fade-in-top">
-        <h2>Company Projects</h2>
-        <p class="description">Enterprise systems built with modern architecture and best practices. The company built these secure web systems for other client companies to use inside their own businesses. Because these tools are made for internal use only and handle private business data, they are kept on local secure networks and cannot be viewed by the public. Each project was carefully designed to help our clients manage their daily operations and teamwork safely and efficiently.</p>
+<section class="projects-section">
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-tag">Featured Work</span>
+    <h2>Enterprise Systems &amp; Platforms</h2>
+    <p>Mission-critical internal platforms engineered with Angular, TypeScript, and scalable architecture.</p>
+  </div>
+
+  <!-- Enterprise Disclosure Banner (Launch UI Notice) -->
+  <div class="disclosure-banner">
+    <div class="banner-icon">
+      <i class="pi pi-lock"></i>
     </div>
-
-    <div class="projects-grid">
-        @for (p of projects; track p.id; let odd = $odd) {
-            <div class="project-card" [class]="!odd ? 'animation-fade-in-left':'animation-fade-in-right'">
-
-                <div class="preview">
-                    <img [src]="p.image" [alt]="p.title" loading="lazy">
-                </div>
-
-                <div class="info">
-                    <h3>{{ p.title }}</h3>
-                    <p class="description">{{ p.description }}</p>
-
-                    <div class="tags flex flex-wrap gap-2 mt-3">
-                        @for (tag of p.tags; track tag) {
-                            <p-tag [value]="tag" [rounded]="true"></p-tag>
-                        }
-                    </div>
-
-
-
-                    <!-- <a [href]="p.link" class="view-link" target="_blank">
-                        View Project
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M7 17 L17 7"></path>
-                            <path d="M8 7 h9 v9"></path>
-                        </svg>
-                    </a> -->
-                </div>
-
-            </div>
-        }
+    <div class="banner-text">
+      <strong>Confidential Enterprise Deployments:</strong>
+      These applications were custom-built for client enterprise operations, deployed within secured private networks to protect proprietary workflows and data.
     </div>
+  </div>
+
+  <!-- Bento Project Cards Grid -->
+  <div class="projects-grid">
+    @for (p of projects; track p.id) {
+      <div class="project-bento-card">
+
+        <!-- Browser Mockup Header -->
+        <div class="mockup-bar">
+          <div class="window-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="window-path">enterprise://{{ p.title.toLowerCase().replace(' ', '-') }}</span>
+          <span class="live-pill">Internal</span>
+        </div>
+
+        <!-- Preview Image Container -->
+        <div class="preview-area">
+          <img [src]="p.image" [alt]="p.title" loading="lazy">
+        </div>
+
+        <!-- Content Area -->
+        <div class="card-body">
+          <h3 class="project-title">{{ p.title }}</h3>
+          <p class="project-desc">{{ p.description }}</p>
+
+          <div class="tags-row">
+            @for (tag of p.tags; track tag) {
+              <span class="tech-pill">{{ tag }}</span>
+            }
+          </div>
+
+          <div class="card-footer">
+            <span class="spec-label">
+              <i class="pi pi-shield text-primary"></i> Enterprise Architecture
+            </span>
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
 </section>
